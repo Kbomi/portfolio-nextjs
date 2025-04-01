@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: #076653;
+  --color-light-primary: rgba(7, 102, 83, .3);
 }
 
 :root {
@@ -14,6 +15,7 @@
     --background: #0c342c;
     --foreground: #ededed;
     --color-primary: #e3ef26;
+    --color-light-primary: rgba(227, 239, 38, .3);
   }
 }
 

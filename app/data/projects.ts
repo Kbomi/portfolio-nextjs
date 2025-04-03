@@ -5,7 +5,7 @@ const projects = [
     description: '크리에이터링크의 기능을 살려 퍼블리싱 100% 진행.',
     period: '1일',
     skill: 'HTML, CSS',
-    image: '/projects/sellout.png',
+    image: '/project/sellout.png',
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ const projects = [
     description: '기존에 운영되는 프로젝트에 메인 화면 차트 퍼블리싱.',
     period: '1일',
     skill: 'HTML, CSS, JavaScript',
-    image: '/projects/meecs.png',
+    image: '/project/meecs.png',
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const projects = [
     description: '메뉴얼 문서 생성 자동화 툴 웹 리뉴얼 퍼블리싱.',
     period: '19일',
     skill: 'Next.js, Bootstrap',
-    image: '/projects/meecs.png',
+    image: '',
   },
   {
     id: 3,

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
+import "swiper/css";
+import "swiper/css/navigation";
 import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({

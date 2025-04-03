@@ -2,8 +2,6 @@
 import CareerCard from "./CareerCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
 import career from "../data/career";
 
 export default function Career() {

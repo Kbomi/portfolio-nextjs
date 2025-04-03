@@ -2,12 +2,14 @@
 
 @theme {
   --color-primary: #076653;
+  --color-sub-primary: #e2fbce;
   --color-light-primary: rgba(7, 102, 83, .3);
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --swiper-navigation-size: 24px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +17,7 @@
     --background: #0c342c;
     --foreground: #ededed;
     --color-primary: #e3ef26;
+    --color-sub-primary: #0c342c;
     --color-light-primary: rgba(227, 239, 38, .3);
   }
 }
@@ -23,4 +26,19 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Noto Sans KR, sans-serif;
+}
+
+/* swiper 스타일 재정의 */
+.swiper {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.swiper-button-prev, .swiper-button-next {
+  color: var(--color-primary)
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
 }

@@ -28,7 +28,7 @@ export default function Career() {
           navigation
           style={{ paddingBottom: '8px' }}
         >
-          {career.map(card => (
+          {career.slice().reverse().map(card => (
             <SwiperSlide key={card.id}>
               <CareerCard card={card} />
             </SwiperSlide>

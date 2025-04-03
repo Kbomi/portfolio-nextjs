@@ -5,7 +5,6 @@ import { Navigation } from "swiper/modules";
 import career from "../data/career";
 
 export default function Career() {
-
   return (
     <section id="career" className="container mx-auto scroll-mt-16 px-auto py-16">
       <h2 className="text-3xl font-bold text-primary text-center">회사 근무 경력</h2>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 py-2 bg-white shadow-md z-50">
+    <header className="sticky top-0 py-2 bg-white shadow-md z-2">
       <nav className="container mx-auto flex items-center justify-between">
         <Link href="#intro">
           <Image src='/logo.png' alt='나뭇잎모양 로고 이미지' width={150} height={65} />

@@ -7,7 +7,7 @@ import career from "../data/career";
 export default function Career() {
 
   return (
-    <section className="container mx-auto px-auto py-16">
+    <section id="career" className="container mx-auto scroll-mt-16 px-auto py-16">
       <h2 className="text-3xl font-bold text-primary text-center">회사 근무 경력</h2>
       <p className="mt-4 text-center">2018년부터 웹 퍼블리셔로 다양한 프로젝트를 수행하며<br />React, Vue 등 프레임워크 기반 개발과 SCSS, Emotion, Bootstrap, Blueprint.js 등 스타일 및 디자인 시스템 활용 경험을 쌓았습니다. <br />
         2022년 이후 프론트엔드 개발자로 전향하여 React, HTML, JavaScript 기반의 다양한 웹 프로젝트를 진행했습니다.<br />

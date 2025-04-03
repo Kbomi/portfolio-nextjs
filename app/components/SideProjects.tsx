@@ -7,7 +7,7 @@ import sideProjects from '../data/sideProjects';
 
 export default function SideProjects() {
   return (
-    <section className="container max-w-screen-xl flex items-center justify-center gap-4 mx-auto py-16 px-6">
+    <section id="sideproject" className="container max-w-screen-xl flex items-center justify-center gap-4 scroll-mt-16 mx-auto py-16 px-6">
       <div className='w-[60%]'>
         <h2 className="text-3xl font-bold text-primary">사이드 프로젝트</h2>
         <p className='mt-4 text-gray-600'>만들고 싶은 기능을 직접 기획하고 개발하여 구현했습니다.</p>

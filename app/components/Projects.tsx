@@ -6,7 +6,7 @@ import projects from '../data/projects';
 export default function Projects() {
   return (
     <div className='bg-light-primary'>
-      <section className="container max-w-screen-xl flex items-center justify-center gap-4 mx-auto py-16 px-6">
+      <section id="project" className="container max-w-screen-xl flex items-center justify-center gap-4 scroll-mt-16 mx-auto py-16 px-6">
         <div className="flex items-center justify-center w-[40%]">
           <Image src='/mac.png' alt='컴퓨터 이미지' width={400} height={400} />
         </div>

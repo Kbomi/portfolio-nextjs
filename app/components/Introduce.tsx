@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Introduce() {
   return (
-    <section className="container max-w-screen-xl flex items-center justify-center gap-4 mx-auto py-16 px-6">
+    <section id="intro" className="container max-w-screen-xl flex items-center justify-center gap-4 mx-auto scroll-mt-16 py-16 px-6">
       <div className='w-[60%]'>
         <h1 className="text-4xl font-bold">안녕하세요.
           <br />

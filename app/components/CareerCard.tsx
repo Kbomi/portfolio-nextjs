@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link'
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -31,7 +32,7 @@ export default function CareerCard({ card }: { card: CareerProps }) {
 
   return (
     <>
-      <article className="bg-white shadow-md rounded-2xl flex flex-col"
+      <article className="bg-white shadow-md rounded-2xl flex flex-col cursor-pointer"
         onClick={() => setIsOpen(true)}
         role="button" // 접근성을 위한 역할 부여
         tabIndex={0} // 키보드 포커스 가능하도록 설정

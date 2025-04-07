@@ -10,8 +10,10 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <Introduce />
-        <Career />
+        <div className='bg-[url(/bg.png)] bg-contain bg-top-left xl:bg-cover xl:bg-no-repeat'>
+          <Introduce />
+          <Career />
+        </div>
         <Projects />
         <SideProjects />
       </main>

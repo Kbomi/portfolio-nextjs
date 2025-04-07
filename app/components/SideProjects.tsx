@@ -18,8 +18,8 @@ export default function SideProjects() {
             spaceBetween={20}
             slidesPerView={1}
             breakpoints={{
-              640: { slidesPerView: 4 }, // 태블릿: 2개
-              1024: { slidesPerView: 2 }, // 데스크톱: 4개
+              640: { slidesPerView: 1 }, // 태블릿: 1개
+              1024: { slidesPerView: 2 }, // 데스크톱: 2개
             }}
             navigation
             style={{ paddingBottom: '8px' }}

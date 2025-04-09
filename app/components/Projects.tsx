@@ -44,7 +44,7 @@ export default function Projects() {
       <div className='bg-light-primary'>
         <section id="project" className="container max-w-screen-xl flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 scroll-mt-16 mx-auto py-6 md:py-16 px-6">
           <div className="relative w-[80px] h-[80px] md:w-[400px] md:h-[400px]">
-            <Image src='/mac.png' alt='컴퓨터 이미지' fill />
+            <Image src='/mac.webp' alt='컴퓨터 이미지' fill />
           </div>
           <div className='w-full md:w-[60%]'>
             <h2 className="text-2xl md:text-3xl font-bold text-primary">외주 프로젝트

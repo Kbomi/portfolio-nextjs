@@ -10,7 +10,7 @@ export default function Header() {
     <header className="sticky top-0 py-2 bg-white shadow-md z-2">
       <nav className="container mx-auto flex items-center justify-between px-5 md:px-0">
         <Link href="#intro">
-          <Image src='/logo.png' alt='로고' width={65} height={65} />
+          <Image src='/logo.webp' alt='로고' width={65} height={65} />
         </Link>
 
         {/* PC 메뉴 */}
@@ -24,7 +24,7 @@ export default function Header() {
 
         {/* Mobile 햄버거 */}
         <button className="md:hidden cursor-pointer" onClick={() => setOpen(!open)}>
-          <Image src="/menu.png" alt="메뉴" width={30} height={30} />
+          <Image src="/menu.webp" alt="메뉴" width={30} height={30} />
         </button>
 
         {/* Mobile 메뉴 리스트 */}

@@ -12,13 +12,13 @@ const notoSansKR = Noto_Sans_KR({
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio.kko-kkuri.com'),
   title: "웹 프론트엔드 개발자 김보미",
-  description: "웹 프론트엔드 개발자 김보미 포트폴리오. 그동안의 ",
+  description: "웹 프론트엔드 개발자 김보미의 포트폴리오입니다. 제 소개와 진행했던 프로젝트에 대한 내용을 담았습니다.",
   alternates: {
     canonical: 'https://portfolio.kko-kkuri.com',
   },
   openGraph: {
     title: '웹 프론트엔드 개발자 김보미',
-    description: '김보미의 포트폴리오입니다. 제 소개와 진행했던 프로젝트에 대한 내용을 담았습니다.',
+    description: '웹 프론트엔드 개발자 김보미의 포트폴리오입니다. 제 소개와 진행했던 프로젝트에 대한 내용을 담았습니다.',
     url: 'https://portfolio.kko-kkuri.com',
     siteName: '웹 프론트엔드 개발자 김보미',
     images: [{ url: 'http://www.kko-kkuri.com/wp-content/uploads/2023/06/cropped-logo_long_transparent-e1686665532847-1.png' }]

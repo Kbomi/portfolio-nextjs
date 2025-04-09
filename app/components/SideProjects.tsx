@@ -33,7 +33,7 @@ export default function SideProjects() {
         </div>
       </div>
       <div className="relative w-[80px] h-[80px] md:w-[400px] md:h-[400px]">
-        <Image src='/toy.png' alt='장난감을 만지는 로봇 이미지' width={400} height={400} />
+        <Image src='/toy.webp' alt='장난감을 만지는 로봇 이미지' width={400} height={400} />
       </div>
     </section>
   );

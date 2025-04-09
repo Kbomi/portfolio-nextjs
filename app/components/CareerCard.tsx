@@ -60,9 +60,9 @@ export default function CareerCard({ card }: { card: CareerProps }) {
         >
           <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
             {/* 헤더 */}
-            <div className="p-8 shadow-md">
+            <div className="p-4 md:px-8 md:py-6 shadow-md">
               <div className="flex items-center justify-between items-center">
-                <h3 className="text-3xl font-bold text-gray-900">{card.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{card.title}</h3>
                 <button
                   className="text-gray-500 hover:text-gray-700 transition cursor-pointer"
                   onClick={() => setIsOpen(false)}
@@ -75,13 +75,13 @@ export default function CareerCard({ card }: { card: CareerProps }) {
             </div>
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
-            <div className="my-6 max-h-[60vh] overflow-y-auto px-8">
+            <div className="my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
               <h4 className="text-xl font-semibold text-gray-800">프로젝트 상세 내용</h4>
-              <div className="border-l-2 border-primary mt-4 ml-2 pl-5 space-y-10">
+              <div className="border-l-2 border-primary mt-4 ml-1 md:ml-2 pl-3 md:pl-5 space-y-5 md:space-y-10">
                 {card.projects?.slice().reverse().map((project, index) => (
                   <div key={index}>
                     <h4 className="text-lg font-bold text-gray-900">{project.title}</h4>
-                    <div className="flex gap-4 items-center mt-1">
+                    <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center mt-1">
                       <p className="text-sm text-gray-600">📅 기간: {project.date}</p>
                       <p className="text-sm text-gray-600">🛠 기술 스택: {project.skill}</p>
                     </div>

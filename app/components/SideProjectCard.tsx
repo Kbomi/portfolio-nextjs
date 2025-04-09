@@ -59,12 +59,12 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
         >
           <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
             {/* 헤더 */}
-            <div className="p-8 shadow-md">
-              <div className="flex items-center">
-                <Image src={card.thumb} alt={`${card.title}의 썸네일 이미지`} className="w-15 h-15 rounded-full object-cover" width={500} height={500} />
-                <h3 className="ml-4 text-3xl font-bold text-gray-900">{card.title}</h3>
+            <div className="p-4 md:px-8 md:py-6 shadow-md">
+              <div className="relative flex items-center pt-8 md:pt-0">
+                <Image src={card.thumb} alt={`${card.title}의 썸네일 이미지`} className="w-10 md:w-15 h-10 md:h-15 rounded-full object-cover" width={500} height={500} />
+                <h3 className="ml-4 text-2xl md:text-3xl font-bold text-gray-900">{card.title}</h3>
                 <button
-                  className="ml-auto text-gray-500 hover:text-gray-700 transition cursor-pointer"
+                  className="absolute right-0 top-0 z-2 md:static ml-auto text-gray-500 hover:text-gray-700 transition cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   <X size={28} />
@@ -74,9 +74,9 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
             </div>
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
-            <div className="my-6 max-h-[60vh] overflow-y-auto px-8">
-              <div className="flex mt-4 space-x-6">
-                <Link href={card.link} target="_blank" className="relative block w-[50%] h-120 border border-gray-300 rounded">
+            <div className="my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
+              <div className="flex flex-col md:flex-row mt-0 md:mt-4 space-x-6">
+                <Link href={card.link} target="_blank" className="relative block w-full md:w-[50%] h-80 md:h-120 border border-gray-300 rounded">
                   <Image
                     src={card.image}
                     alt={`${card.title} 참고 이미지`}
@@ -84,10 +84,10 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
                     fill
                   />
                 </Link>
-                <div className="w-[50%]">
+                <div className="w-full md:w-[50%] mt-4 md:mt-0">
                   <p className="text-sm text-gray-500">🛠 기술 스택: {card.skill}</p>
-                  <p className="mt-4">🔗 링크: <Link href={card.link} target="_blank" className="underline underline-offset-4 transition">{card.title}</Link></p>
-                  <p className="mt-4 whitespace-break-spaces">{card.content}</p>
+                  <p className="mt-2 md:mt-4 text-sm md:text-base">🔗 링크: <Link href={card.link} target="_blank" className="underline underline-offset-4 transition">{card.title}</Link></p>
+                  <p className="mt-2 md:mt-4 whitespace-break-spaces">{card.content}</p>
                 </div>
               </div>
             </div>

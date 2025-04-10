@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/inline-script-id */
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
+import Script from "next/script";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./globals.css";
@@ -33,6 +35,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-TH9YRH79TW"></Script>
+        <Script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-TH9YRH79TW');`}
+        </Script>
+      </head>
       <body
         className={`${notoSansKR.className} antialiased`}
       >

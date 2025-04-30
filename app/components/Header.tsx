@@ -7,7 +7,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 py-2 bg-white shadow-md z-2">
+    <header className="sticky top-0 py-2 bg-white shadow-md z-2 dark:bg-sub-primary">
       <nav className="container mx-auto flex items-center justify-between px-5 md:px-0">
         <Link href="#intro">
           <Image src='/logo.webp' alt='로고' width={65} height={65} />

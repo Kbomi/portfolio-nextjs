@@ -46,9 +46,9 @@ export default function CareerCard({ card }: { card: CareerProps }) {
         </div>
         {/* 텍스트 정보 */}
         <div className="p-6 pt-4">
-          <h3 className="text-lg font-semibold text-gray-800">{card.title}</h3>
-          <p className="mt-2 text-sm text-gray-500">근무 기간: {card.date}</p>
-          <p className="mt-2 text-sm whitespace-break-spaces">{card.description}</p>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-light-primary">{card.title}</h3>
+          <p className="mt-2 text-sm text-gray-700">근무 기간: {card.date}</p>
+          <p className="mt-2 text-sm text-gray-700 whitespace-break-spaces">{card.description}</p>
         </div>
       </article>
     
@@ -70,20 +70,20 @@ export default function CareerCard({ card }: { card: CareerProps }) {
                   <X size={28} />
                 </button>
               </div>
-              <p className="mt-2 text-sm text-gray-600">근무 기간: {card.date}</p>
+              <p className="mt-2 text-sm text-gray-700">근무 기간: {card.date}</p>
               <p className="mt-2 text-sm whitespace-break-spaces">{card.content}</p>
             </div>
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
             <div className="my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
-              <h4 className="text-xl font-semibold text-gray-800">프로젝트 상세 내용</h4>
+              <h4 className="text-xl font-semibold text-gray-800 dark:text-light-primary">프로젝트 상세 내용</h4>
               <div className="border-l-2 border-primary mt-4 ml-1 md:ml-2 pl-3 md:pl-5 space-y-5 md:space-y-10">
                 {card.projects?.slice().reverse().map((project, index) => (
                   <div key={index}>
                     <h4 className="text-lg font-bold text-gray-900">{project.title}</h4>
                     <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center mt-1">
-                      <p className="text-sm text-gray-600">📅 기간: {project.date}</p>
-                      <p className="text-sm text-gray-600">🛠 기술 스택: {project.skill}</p>
+                      <p className="text-sm text-gray-700">📅 기간: {project.date}</p>
+                      <p className="text-sm text-gray-700">🛠 기술 스택: {project.skill}</p>
                     </div>
                     {project.url?.length && (
                       <p className='flex gap-2 mt-2 text-sm text-gray-600'>🔗 URL: 

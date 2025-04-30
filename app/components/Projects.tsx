@@ -59,7 +59,7 @@ export default function Projects() {
             <div className="mt-4 md:mt-12">
               {projects.slice().reverse().slice(0, 3).map((project, index) => (
                 <div key={project.id} className="flex items-start gap-3 md:gap-4 mb-3 md:mb-6">
-                  <span className="w-[32px] h-[32px] flex-[0_0_32px] flex items-center justify-center bg-primary text-sm md:text-base text-white font-bold rounded-full">
+                  <span className="w-[32px] h-[32px] flex-[0_0_32px] flex items-center justify-center bg-primary text-sm md:text-base text-white dark:text-light-primary font-bold rounded-full">
                     {index + 1}
                   </span>
                   <div>
@@ -70,7 +70,7 @@ export default function Projects() {
               ))}
             </div>
             <div className='mt-6 md:mt-12'>
-              <button className="px-6 py-3 bg-gray-200 text-primary font-bold rounded-lg cursor-pointer hover:bg-primary hover:text-white" onClick={() => setIsOpen(true)}>더보기</button>
+              <button className="px-6 py-3 bg-gray-200 text-primary dark:text-light-primary font-bold rounded-lg cursor-pointer hover:bg-primary hover:text-white" onClick={() => setIsOpen(true)}>더보기</button>
             </div>
           </div>
         </section>
@@ -94,12 +94,12 @@ export default function Projects() {
                   <X size={28} />
                 </button>
               </div>
-              <p className="mt-2 text-sm text-gray-600">총: {projects.length}건</p>
+              <p className="mt-2 text-sm text-gray-700">총: {projects.length}건</p>
             </div>
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
             <div className="my-6 max-h-[60vh] overflow-y-auto px-8">
-              <h4 className="text-xl font-semibold text-gray-800">프로젝트 상세 내용</h4>
+              <h4 className="text-xl font-semibold text-gray-800 dark:text-light-primary">프로젝트 상세 내용</h4>
               <div className="mt-4 space-y-6">
                 {projects.slice().reverse().map((project, index) => {
                   const isOpen = openIndexes.includes(index)
@@ -109,7 +109,7 @@ export default function Projects() {
                       {/* 타이틀 영역 */}
                       <button
                         onClick={() => toggleProject(index)}
-                        className="w-full flex justify-between items-center cursor-pointer text-primary font-bold"
+                        className="w-full flex justify-between items-center cursor-pointer text-primary dark:text-sub-primary font-bold"
                       >
                         {project.title}
                         <ChevronDown
@@ -137,8 +137,8 @@ export default function Projects() {
                             </div>
                           )}
                           <div className="space-y-2">
-                            <p className="text-sm text-gray-600">📅 기간: {project.period}</p>
-                            <p className="text-sm text-gray-600">🛠 기술스택: {project.skill}</p>
+                            <p className="text-sm text-gray-700">📅 기간: {project.period}</p>
+                            <p className="text-sm text-gray-700">🛠 기술스택: {project.skill}</p>
                             <p className="mt-4 whitespace-break-spaces">작업: {project.content}</p>
                           </div>
                         </div>

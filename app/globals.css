@@ -14,11 +14,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c342c;
+    --background: #175a4c;
     --foreground: #ededed;
-    --color-primary: #e3ef26;
+    --color-primary: #6BE6A2;
     --color-sub-primary: #0c342c;
-    --color-light-primary: rgba(227, 239, 38, .3);
+    --color-light-primary: #0F172A;
   }
 }
 

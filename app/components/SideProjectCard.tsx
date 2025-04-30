@@ -43,8 +43,8 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
         <div className="flex items-center gap-3">
           <Image src={card.thumb} alt={`${card.title}의 썸네일 이미지`} className="w-15 h-15 rounded-full object-cover" width={500} height={500} />
           <div>
-            <h3 className="text-sm font-semibold">{card.title}</h3>
-            <p className="text-xs text-gray-500">기술 스택: {card.skill}</p>
+            <h3 className="text-sm font-semibold dark:text-light-primary">{card.title}</h3>
+            <p className="text-xs text-gray-700">기술 스택: {card.skill}</p>
           </div>
         </div>
         {/* 텍스트 정보 */}
@@ -70,7 +70,7 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
                   <X size={28} />
                 </button>
               </div>
-              <p className="mt-2 text-sm text-gray-600">{card.description}</p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-light-primary">{card.description}</p>
             </div>
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
@@ -85,7 +85,7 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
                   />
                 </Link>
                 <div className="w-full md:w-[50%] mt-4 md:mt-0">
-                  <p className="text-sm text-gray-500">🛠 기술 스택: {card.skill}</p>
+                  <p className="text-sm text-gray-700">🛠 기술 스택: {card.skill}</p>
                   <p className="mt-2 md:mt-4 text-sm md:text-base">🔗 링크: <Link href={card.link} target="_blank" className="underline underline-offset-4 transition">{card.title}</Link></p>
                   <p className="mt-2 md:mt-4 whitespace-break-spaces">{card.content}</p>
                 </div>

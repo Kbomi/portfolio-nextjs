@@ -10,7 +10,7 @@ export default function SideProjects() {
     <section id="sideproject" className="container max-w-screen-xl flex flex-col-reverse md:flex-row items-center justify-center gap-2 md:gap-4 scroll-mt-16 mx-auto py-6 md:py-16 px-6">
       <div className='w-full md:w-[60%]'>
         <h2 className="text-2xl md:text-3xl font-bold text-primary">사이드 프로젝트</h2>
-        <p className='mt-2 md:mt-4 text-sm md:text-base text-gray-600'>만들고 싶은 기능을 직접 기획하고 개발하여 구현했습니다.</p>
+        <p className='mt-2 md:mt-4 text-sm md:text-base text-gray-600 dark:text-gray-200'>만들고 싶은 기능을 직접 기획하고 개발하여 구현했습니다.</p>
         <div className='mt-3 md:mt-12'>
           {/* Swiper 슬라이더 */}
           <Swiper

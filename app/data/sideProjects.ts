@@ -59,6 +59,16 @@ const sideProjects: SideProjectProps[] = [
     image: '/sideproject/baby.webp',
     link: 'https://babycalc.kko-kkuri.com',
     content: '임신과 출산을 준비하며 관련 정보가 흩어져 있어 불편함을 느꼈고, 이를 계기로 출산·육아휴직 기간과 급여 정보를 쉽고 빠르게 확인할 수 있는 사이트를 제작하였습니다.\n\n사용자가 출산휴가 시작일만 입력하면 자동으로 종료일과 육아휴직 기간을 계산해주며, 급여 계산은 개인 상황에 맞게 세부 옵션을 설정할 수 있도록 구성하였습니다.',
+  },
+  {
+    id: 5,
+    title: 'BMI/BMR 계산기',
+    description: '간단한 정보를 입력하면 BMI와 BMR을 계산해주는 웹 사이트.',
+    skill: 'React, TypeScript',
+    thumb: '/sideproject/health.webp',
+    image: '/sideproject/health.webp',
+    link: 'https://health.kko-kkuri.com',
+    content: 'Gemini CLI를 사용해보려고 만든 사이트 입니다.\n"키, 몸무게, 나이, 성별"을 입력하면 BMI, BMR을 계산하는 웹사이트 만들어줘. React로 만들어줘. 타입스크립트로 만들어줘. 라고 요청하니, 5분도 안되어서 코드를 작성해주었습니다.\n\n이후에 추가로 다국어작업, 다크모드, UI개선을 하여 배포했습니다.',
   }
 ];
 

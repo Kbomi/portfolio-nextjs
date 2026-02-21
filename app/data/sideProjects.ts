@@ -70,6 +70,17 @@ const sideProjects: SideProjectProps[] = [
     link: 'https://health.kko-kkuri.com',
     content: 'Gemini CLI를 사용해보려고 만든 사이트 입니다.\n"키, 몸무게, 나이, 성별"을 입력하면 BMI, BMR을 계산하는 웹사이트 만들어줘. React로 만들어줘. 타입스크립트로 만들어줘. 라고 요청하니, 5분도 안되어서 코드를 작성해주었습니다.\n\n이후에 추가로 다국어작업, 다크모드, UI개선을 하여 배포했습니다.',
   }
+  {
+    id: 6,
+    title: "에이노트 (AI Note)",
+    description: "AI가 당신의 하루를 분석하고 기록해주는 스마트 AI 일기장.",
+    skill: "Next.js, TypeScript, Supabase, Google Gemini API, Tailwind CSS",
+    thumb: "/sideproject/ainote.webp",
+    image: "/sideproject/ainote.webp",
+    link: "https://ainote.kko-kkuri.com",
+    content:
+      "사용자가 하루의 일상을 기록하면 Google Gemini AI가 내용을 분석해 감정 리포트를 생성하고, 내일의 할 일을 제안해주는 서비스입니다.\n\n단순한 일기장을 넘어 유저의 데이터를 기반으로 한 개인화된 피드백을 제공하는 데 집중했습니다.\nSupabase를 활용해 구글·카카오 소셜 로그인을 구현했습니다.",
+  },
 ];
 
 export default sideProjects;

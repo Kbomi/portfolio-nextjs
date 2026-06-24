@@ -45,13 +45,16 @@ body {
 .swiper-button-next {
   right: 0;
 }
-.career-swiper .swiper-wrapper {
+.career-swiper .swiper-wrapper,
+.sideproject-swiper .swiper-wrapper {
   align-items: stretch;
 }
-.career-swiper .swiper-slide {
+.career-swiper .swiper-slide,
+.sideproject-swiper .swiper-slide {
   height: auto;
 }
-.career-swiper .swiper-slide > * {
+.career-swiper .swiper-slide > *,
+.sideproject-swiper .swiper-slide > * {
   height: 100%;
 }
 button {

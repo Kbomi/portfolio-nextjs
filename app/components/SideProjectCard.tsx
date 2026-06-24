@@ -33,7 +33,7 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
   
   return (
     <>
-      <article className="group bg-white shadow-md rounded-2xl flex flex-col gap-6 p-6 cursor-pointer transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      <article className="group bg-white shadow-md rounded-2xl flex h-full flex-col gap-6 p-6 cursor-pointer transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         onClick={() => setIsOpen(true)}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {

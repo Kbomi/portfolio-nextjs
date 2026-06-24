@@ -22,10 +22,11 @@ export default function SideProjects() {
               1024: { slidesPerView: 2 }, // 데스크톱: 2개
             }}
             navigation
+            className="sideproject-swiper"
             style={{ paddingBottom: '8px' }}
           >
             {sideProjects.slice().reverse().map(card => (
-              <SwiperSlide key={card.id}>
+              <SwiperSlide key={card.id} className="h-auto">
                 <SideProjectCard card={card} />
               </SwiperSlide>
             ))}

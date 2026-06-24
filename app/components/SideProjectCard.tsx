@@ -33,8 +33,14 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
   
   return (
     <>
-      <article className="bg-white shadow-md rounded-2xl flex flex-col gap-6 p-6 cursor-pointer"
+      <article className="group bg-white shadow-md rounded-2xl flex h-full flex-col gap-6 p-6 cursor-pointer transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         onClick={() => setIsOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setIsOpen(true);
+          }
+        }}
         role="button" // 접근성을 위한 역할 부여
         tabIndex={0} // 키보드 포커스 가능하도록 설정
         aria-label={`${card.title} 상세 보기`} // 스크린 리더용 설명 추가
@@ -49,6 +55,7 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
         </div>
         {/* 텍스트 정보 */}
         <p className="text-sm text-gray-700">{card.description}</p>
+        <p className="mt-auto text-sm font-bold text-primary underline-offset-4 group-hover:underline">자세히 보기</p>
       </article>
 
       {/* 모달을 Portal로 body 하단에 렌더링 */}

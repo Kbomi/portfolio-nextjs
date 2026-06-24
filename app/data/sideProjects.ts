@@ -57,7 +57,7 @@ const sideProjects: SideProjectProps[] = [
     id: 4,
     title: "출산 & 육아휴직 계산기",
     description:
-      "출산휴가 날짜, 육아휴직 날짜와 급여를 미리 계산 해보는 웹 사이트.",
+      "출산휴가 날짜, 육아휴직 날짜와 급여를 미리 계산해보는 웹 사이트.",
     skill: "HTML, CSS, JavaScript",
     thumb: "/sideproject/baby.webp",
     image: "/sideproject/baby.webp",
@@ -74,18 +74,40 @@ const sideProjects: SideProjectProps[] = [
     image: "/sideproject/health.webp",
     link: "https://health.kko-kkuri.com",
     content:
-      'Gemini CLI를 사용해보려고 만든 사이트 입니다.\n"키, 몸무게, 나이, 성별"을 입력하면 BMI, BMR을 계산하는 웹사이트 만들어줘. React로 만들어줘. 타입스크립트로 만들어줘. 라고 요청하니, 5분도 안되어서 코드를 작성해주었습니다.\n\n이후에 추가로 다국어작업, 다크모드, UI개선을 하여 배포했습니다.',
+      "Gemini CLI를 활용해 React, TypeScript 기반의 BMI/BMR 계산기를 빠르게 구현해본 사이드 프로젝트입니다.\n\n기본 계산 기능을 만든 뒤 다국어, 다크모드, UI 개선 작업을 추가로 진행해 배포했습니다.",
+  },
+  // {
+  //   id: 6,
+  //   title: "에이노트 (AI Note)",
+  //   description: "AI가 당신의 하루를 분석하고 기록해주는 스마트 AI 일기장.",
+  //   skill: "Next.js, TypeScript, Supabase, Google Gemini API, Tailwind CSS",
+  //   thumb: "/sideproject/ainote.webp",
+  //   image: "/sideproject/ainote.webp",
+  //   link: "https://ainote.kko-kkuri.com",
+  //   content:
+  //     "사용자가 하루의 일상을 기록하면 Google Gemini AI가 내용을 분석해 감정 리포트를 생성하고, 내일의 할 일을 제안해주는 서비스입니다.\n\n단순한 일기장을 넘어 유저의 데이터를 기반으로 한 개인화된 피드백을 제공하는 데 집중했습니다.\nSupabase를 활용해 구글·카카오 소셜 로그인을 구현했습니다.",
+  // },
+  {
+    id: 7,
+    title: "생활계획표",
+    description: "귀여운 스티커로 꾸밀 수 있는 생활계획표 웹 사이트.",
+    skill: "Next.js, TypeScript, Tailwind CSS",
+    thumb: "/sideproject/plan.webp",
+    image: "/sideproject/plan.webp",
+    link: "https://plan.kko-kkuri.com",
+    content:
+      "어릴 때 방학 숙제처럼 그리던 생활계획표가 생각나서 가볍게 만들어본 웹 사이트입니다.\n\n사용자가 시간 구간과 활동명을 입력하면 원형 시계 미리보기에 바로 반영되고, 스티커로 꾸밀 수 있도록 구성했습니다.\n\nSVG 기반으로 시간 구간을 원형 조각으로 표현하고, 30분 단위 시간 선택과 구간 중복 검사를 적용했습니다. 완성한 계획표는 이미지로 저장하거나 프린트할 수 있도록 설계했습니다.",
   },
   {
-    id: 6,
-    title: "에이노트 (AI Note)",
-    description: "AI가 당신의 하루를 분석하고 기록해주는 스마트 AI 일기장.",
-    skill: "Next.js, TypeScript, Supabase, Google Gemini API, Tailwind CSS",
-    thumb: "/sideproject/ainote.webp",
-    image: "/sideproject/ainote.webp",
-    link: "https://ainote.kko-kkuri.com",
+    id: 8,
+    title: "또구니-음성으로 메모하는 앱",
+    description: "음성으로 장보기 항목을 추가하고 위젯으로 확인할 수 있는 Flutter 메모 앱.",
+    skill: "Flutter, Speech to Text, Home Widget, Siri Shortcut, Bixby",
+    thumb: "/sideproject/guni.webp",
+    image: "/sideproject/guni.webp",
+    link: "https://kko-kkuri.com/%eb%98%90%ea%b5%ac%eb%8b%88-%ec%9d%8c%ec%84%b1%ec%9c%bc%eb%a1%9c-%ec%93%b0%eb%8a%94-%ec%8a%a4%eb%a7%88%ed%8a%b8-%ec%9e%a5%eb%b0%94%ea%b5%ac%eb%8b%88-%eb%a9%94%eb%aa%a8",
     content:
-      "사용자가 하루의 일상을 기록하면 Google Gemini AI가 내용을 분석해 감정 리포트를 생성하고, 내일의 할 일을 제안해주는 서비스입니다.\n\n단순한 일기장을 넘어 유저의 데이터를 기반으로 한 개인화된 피드백을 제공하는 데 집중했습니다.\nSupabase를 활용해 구글·카카오 소셜 로그인을 구현했습니다.",
+      "AI 바이브 코딩으로 시작한 Flutter 메모 앱입니다.\n말로 장보기 항목을 추가하고, 앱과 홈 화면 위젯에서 확인할 수 있도록 구성했습니다.\n\n특히 Siri 단축어 등록과 Bixby 음성 호출 연동을 중점적으로 다듬었습니다. 사용자가 \"똑똑이한테 추가해줘\"처럼 말하면 항목을 앱에 추가할 수 있도록 호출 문구와 음성 명령 처리 흐름을 조정했습니다.\n\nAI가 생성한 코드를 그대로 두지 않고, 실제 기기에서 동작을 확인하며 음성 호출, 위젯 표시, 안내 화면을 반복적으로 수정했습니다.",
   },
 ];
 

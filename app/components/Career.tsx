@@ -7,10 +7,11 @@ import career from "../data/career";
 export default function Career() {
   return (
     <section id="career" className="container mx-auto scroll-mt-16 px-6 md:px-auto py-6 md:py-16">
-      <h2 className="text-2xl md:text-3xl font-bold text-primary text-center">회사 근무 경력</h2>
-      <p className="mt-4 text-sm md:text-base text-center">2018년부터 웹 퍼블리셔로 다양한 프로젝트를 수행하며<br />React, Vue 등 프레임워크 기반 개발과 SCSS, Emotion, Bootstrap, Blueprint.js 등 스타일 및 디자인 시스템 활용 경험을 쌓았습니다. <br />
-        2022년 이후 프론트엔드 개발자로 전향하여 React, HTML, JavaScript 기반의 다양한 웹 프로젝트를 진행했습니다.<br />
-        탄탄한 퍼블리싱 경험과 프론트엔드 개발 역량을 바탕으로 사용자 경험을 고려한 완성도 높은 웹 서비스를 구현하는 데 집중하고 있습니다.
+      <h2 className="text-2xl md:text-3xl font-bold text-primary text-center">실무 경력</h2>
+      <p className="mt-4 text-sm md:text-base text-center leading-7">
+        2018년 웹 퍼블리셔로 커리어를 시작해 시맨틱 마크업과 반응형 UI 구현 경험을 쌓았고,<br />
+        2022년 이후 React, Vue, Next.js 기반 프론트엔드 개발 영역으로 확장해왔습니다.<br />
+        주요 성과와 문제 해결 사례는 대표 경험에서 더 자세히 확인할 수 있습니다.
       </p>
       <div className="max-w-6xl mx-auto mt-7 p-6">
       {/* Swiper 슬라이더 */}
@@ -23,10 +24,11 @@ export default function Career() {
             1024: { slidesPerView: 4 }, // 데스크톱: 4개
           }}
           navigation
+          className="career-swiper"
           style={{ paddingBottom: '8px' }}
         >
           {career.slice().reverse().map(card => (
-            <SwiperSlide key={card.id}>
+            <SwiperSlide key={card.id} className="h-auto">
               <CareerCard card={card} />
             </SwiperSlide>
           ))}

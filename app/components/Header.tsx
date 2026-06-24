@@ -16,8 +16,8 @@ export default function Header() {
         {/* PC 메뉴 */}
         <ul className="hidden md:flex gap-8">
           <li><Link href="#intro">자기소개</Link></li>
-          <li><Link href="#career">회사 경력</Link></li>
-          <li><Link href="#project">외주 프로젝트</Link></li>
+          <li><Link href="#career">실무 경력</Link></li>
+          <li><Link href="#project">외부 프로젝트</Link></li>
           <li><Link href="#sideproject">사이드 프로젝트</Link></li>
           <li><Link href="#footer">연락처</Link></li>
         </ul>
@@ -31,8 +31,8 @@ export default function Header() {
         {open && (
           <ul className="absolute top-20 right-0 bg-white shadow-md rounded p-4 flex flex-col gap-4 md:hidden">
             <li><Link href="#intro">자기소개</Link></li>
-            <li><Link href="#career">회사 경력</Link></li>
-            <li><Link href="#project">외주 프로젝트</Link></li>
+            <li><Link href="#career">실무 경력</Link></li>
+            <li><Link href="#project">외부 프로젝트</Link></li>
             <li><Link href="#sideproject">사이드 프로젝트</Link></li>
             <li><Link href="#footer">연락처</Link></li>
           </ul>

@@ -47,14 +47,12 @@ export default function Projects() {
             <Image src='/mac.webp' alt='컴퓨터 이미지' fill />
           </div>
           <div className='w-full md:w-[60%]'>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary">외주 프로젝트
+            <h2 className="text-2xl md:text-3xl font-bold text-primary">외부 프로젝트
               <span className='text-sm text-bold'> (총: {projects.length}건)</span>
             </h2>
-            <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-800 dark:text-gray-200">외주 프로젝트를 수행하며 폭넓은 경험을 쌓았습니다.<br />
-              특히 클라이언트의 요구사항을 반영하고 유지보수를 진행하며 실무에서의 협업 능력을 키울 수 있었습니다.<br />
-              이러한 경험을 통해 원활한 소통이 개발 효율성과 직결된다는 것을 깨닫게 되었으며,<br />
-              단순한 기술력뿐만 아니라 협업과 커뮤니케이션이 실무에서 더욱 중요하다는 것을 실감했습니다.<br />
-              이러한 경험을 바탕으로 보다 효과적인 개발 환경을 만들어가는 데 기여할 수 있다고 생각합니다.
+            <p className="mt-2 md:mt-4 text-sm md:text-base leading-7 text-gray-800 dark:text-gray-200">
+              운영 중인 서비스 리뉴얼, 어드민 화면, 콘텐츠형 웹 페이지 등 다양한 환경에서 화면 구현과 UI 개선 작업을 수행했습니다.<br />
+              기존 코드 구조와 일정, 클라이언트 요구사항을 고려해 안정적으로 화면을 완성하는 경험을 쌓았습니다.
             </p>
             <div className="mt-4 md:mt-12">
               {projects.slice().reverse().slice(0, 3).map((project, index) => (
@@ -86,7 +84,7 @@ export default function Projects() {
             {/* 헤더 */}
             <div className="p-4 md:px-8 md:py-6 shadow-md">
               <div className="flex items-center justify-between items-center">
-                <h3 className="text-3xl font-bold text-gray-900">외주 프로젝트</h3>
+                <h3 className="text-3xl font-bold text-gray-900">외부 프로젝트</h3>
                 <button
                   className="text-gray-500 hover:text-gray-700 transition cursor-pointer"
                   onClick={() => setIsOpen(false)}
@@ -99,7 +97,7 @@ export default function Projects() {
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
             <div className="my-6 max-h-[60vh] overflow-y-auto px-8">
-              <h4 className="text-xl font-semibold text-gray-800 dark:text-light-primary">프로젝트 상세 내용</h4>
+              <h4 className="text-xl font-semibold text-gray-800 dark:text-light-primary">프로젝트 목록</h4>
               <div className="mt-4 space-y-6">
                 {projects.slice().reverse().map((project, index) => {
                   const isOpen = openIndexes.includes(index)

@@ -3,7 +3,7 @@
 @theme {
   --color-primary: #076653;
   --color-sub-primary: #e2fbce;
-  --color-light-primary: rgba(7, 102, 83, .3);
+  --color-light-primary: rgba(7, 102, 83, 0.3);
 }
 
 :root {
@@ -16,16 +16,18 @@
   :root {
     --background: #175a4c;
     --foreground: #ededed;
-    --color-primary: #6BE6A2;
+    --color-primary: #6be6a2;
     --color-sub-primary: #0c342c;
-    --color-light-primary: #0F172A;
+    --color-light-primary: #0f172a;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Noto Sans KR, sans-serif;
+  font-family:
+    Noto Sans KR,
+    sans-serif;
 }
 
 /* swiper 스타일 재정의 */
@@ -33,12 +35,25 @@ body {
   padding-right: 20px;
   padding-left: 20px;
 }
-.swiper-button-prev, .swiper-button-next {
-  color: var(--color-primary)
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--color-primary);
 }
 .swiper-button-prev {
   left: 0;
 }
 .swiper-button-next {
   right: 0;
+}
+.career-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.career-swiper .swiper-slide {
+  height: auto;
+}
+.career-swiper .swiper-slide > * {
+  height: 100%;
+}
+button {
+  cursor: pointer;
 }

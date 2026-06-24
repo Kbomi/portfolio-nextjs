@@ -32,8 +32,14 @@ export default function CareerCard({ card }: { card: CareerProps }) {
 
   return (
     <>
-      <article className="bg-white shadow-md rounded-2xl flex flex-col cursor-pointer"
+      <article className="group bg-white shadow-md rounded-2xl flex h-full flex-col cursor-pointer transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         onClick={() => setIsOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setIsOpen(true);
+          }
+        }}
         role="button" // 접근성을 위한 역할 부여
         tabIndex={0} // 키보드 포커스 가능하도록 설정
         aria-label={`${card.title} 상세 보기`} // 스크린 리더용 설명 추가
@@ -45,10 +51,14 @@ export default function CareerCard({ card }: { card: CareerProps }) {
           {card.title.charAt(0)}
         </div>
         {/* 텍스트 정보 */}
-        <div className="p-6 pt-4">
+        <div className="flex flex-1 flex-col p-6 pt-4">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-light-primary">{card.title}</h3>
           <p className="mt-2 text-sm text-gray-700">근무 기간: {card.date}</p>
+          {card.leave && (
+            <p className="mt-1 text-xs font-bold text-gray-500">{card.leave}</p>
+          )}
           <p className="mt-2 text-sm text-gray-700 whitespace-break-spaces">{card.description}</p>
+          <p className="mt-auto pt-4 text-sm font-bold text-primary underline-offset-4 group-hover:underline">자세히 보기</p>
         </div>
       </article>
     
@@ -71,12 +81,15 @@ export default function CareerCard({ card }: { card: CareerProps }) {
                 </button>
               </div>
               <p className="mt-2 text-sm text-gray-700">근무 기간: {card.date}</p>
+              {card.leave && (
+                <p className="mt-1 text-sm font-bold text-gray-500">휴직 기간: {card.leave}</p>
+              )}
               <p className="mt-2 text-sm whitespace-break-spaces">{card.content}</p>
             </div>
 
             {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
             <div className="my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
-              <h4 className="text-xl font-semibold text-gray-800 dark:text-light-primary">프로젝트 상세 내용</h4>
+              <h4 className="text-xl font-semibold text-gray-800 dark:text-light-primary">주요 업무</h4>
               <div className="border-l-2 border-primary mt-4 ml-1 md:ml-2 pl-3 md:pl-5 space-y-5 md:space-y-10">
                 {card.projects?.slice().reverse().map((project, index) => (
                   <div key={index}>

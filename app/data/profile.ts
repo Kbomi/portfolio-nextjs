@@ -1,18 +1,27 @@
 export const strengths = [
   {
-    title: "운영 서비스 개발",
-    description: "React/Vue 기반 운영 화면 유지보수, API 연동",
-    related: "컬티데이터 웹, 브랜디 웹",
+    title: "React/Next.js 기반 UI 구현",
+    description:
+      "주문서 웹, WMS, 홈페이지 리뉴얼에서 컴포넌트, 반응형 UI, 화면 흐름을 구현했습니다.",
+    related: "브랜디 주문서 웹, 두핸즈, 외부 리뉴얼 작업",
   },
   {
-    title: "UI 구현과 디자인 시스템",
-    description: "퍼블리싱 기반의 반응형 UI, 공통 컴포넌트 구현",
-    related: "브랜디 디자인 시스템, 리뉴얼(외부 작업)",
+    title: "API 연동과 상태 관리",
+    description:
+      "SWR, Recoil, Provider, Dio를 활용해 서버 데이터 호출, 캐싱, 화면 상태, 인증 흐름을 구현했습니다.",
+    related: "브랜디 주문서 웹, 컬티데이터 앱",
   },
   {
-    title: "데이터 연동과 앱 확장",
-    description: "Flutter 앱 개발, 상태관리, 소켓 통신",
-    related: "컬티데이터 앱",
+    title: "운영 서비스 개선과 문제 해결",
+    description:
+      "운영 중 발견된 오류, 신규 데이터 구조, UI 개선 요청을 분석하고 서비스 화면에 반영했습니다.",
+    related: "컬티데이터 웹, 브랜디/하이버 웹",
+  },
+  {
+    title: "AI 도구 기반 개발 생산성",
+    description:
+      "Codex, Claude, Gemini CLI를 구현 초안과 구조 점검에 활용하고, 서비스 맥락에 맞게 직접 수정하며 동작을 검증합니다.",
+    related: "또구니 앱 등 사이드 프로젝트",
   },
 ];
 

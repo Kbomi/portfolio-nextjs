@@ -16,10 +16,11 @@ export default function Introduce() {
           김보미 입니다.
         </h1>
         <p className="mt-4 text-sm md:text-base text-gray-600 dark:text-gray-200">
-          웹 퍼블리싱부터 프론트엔드 개발까지 경험하며, 사용자 중심의
-          인터페이스를 구현해왔습니다.
+          웹 퍼블리싱부터 프론트엔드 개발까지 경험하며, 사용자가 필요한 화면을
+          안정적으로 만들고 개선해왔습니다.
           <br />
-          사용자가 원하는 서비스를 만들고, 기여하는 과정에서 보람을 느낍니다.
+          운영 서비스의 UI 구현, API 연동, 상태 관리와 문제 해결 과정에서
+          보람을 느낍니다.
         </p>
       </div>
       <div className="relative w-[250px] h-[250px] ml-auto md:w-[400px] md:h-[400px]">

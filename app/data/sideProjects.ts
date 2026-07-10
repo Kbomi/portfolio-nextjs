@@ -100,14 +100,26 @@ const sideProjects: SideProjectProps[] = [
   },
   {
     id: 8,
+    title: "체질핏",
+    description: "사상체질 기반 식단/생활 정보를 가볍게 확인하는 웹 서비스.",
+    skill: "Next.js, TypeScript",
+    thumb: "/sideproject/fit.webp",
+    image: "/sideproject/fit.webp",
+    link: "https://fit.kko-kkuri.com",
+    content:
+      "토스 미니앱 출시를 염두에 두고 만든 실험형 웹 서비스입니다.\n\n사상체질 기반 식단과 생활 정보를 사용자가 쉽게 확인할 수 있도록 구성했고, 작은 기능 단위로 빠르게 구현하며 서비스 흐름을 검증했습니다.",
+  },
+  {
+    id: 9,
     title: "또구니-음성으로 메모하는 앱",
-    description: "음성으로 장보기 항목을 추가하고 위젯으로 확인할 수 있는 Flutter 메모 앱.",
+    description:
+      "음성으로 장보기 항목을 추가하고 위젯으로 확인할 수 있는 Flutter 메모 앱.",
     skill: "Flutter, Speech to Text, Home Widget, Siri Shortcut, Bixby",
     thumb: "/sideproject/guni.webp",
     image: "/sideproject/guni.webp",
     link: "https://kko-kkuri.com/%eb%98%90%ea%b5%ac%eb%8b%88-%ec%9d%8c%ec%84%b1%ec%9c%bc%eb%a1%9c-%ec%93%b0%eb%8a%94-%ec%8a%a4%eb%a7%88%ed%8a%b8-%ec%9e%a5%eb%b0%94%ea%b5%ac%eb%8b%88-%eb%a9%94%eb%aa%a8",
     content:
-      "AI 바이브 코딩으로 시작한 Flutter 메모 앱입니다.\n말로 장보기 항목을 추가하고, 앱과 홈 화면 위젯에서 확인할 수 있도록 구성했습니다.\n\n특히 Siri 단축어 등록과 Bixby 음성 호출 연동을 중점적으로 다듬었습니다. 사용자가 \"똑똑이한테 추가해줘\"처럼 말하면 항목을 앱에 추가할 수 있도록 호출 문구와 음성 명령 처리 흐름을 조정했습니다.\n\nAI가 생성한 코드를 그대로 두지 않고, 실제 기기에서 동작을 확인하며 음성 호출, 위젯 표시, 안내 화면을 반복적으로 수정했습니다.",
+      'AI 바이브 코딩으로 시작한 Flutter 메모 앱입니다.\n말로 장보기 항목을 추가하고, 앱과 홈 화면 위젯에서 확인할 수 있도록 구성했습니다.\n\n특히 Siri 단축어 등록과 Bixby 음성 호출 연동을 중점적으로 다듬었습니다. 사용자가 "똑똑이한테 추가해줘"처럼 말하면 항목을 앱에 추가할 수 있도록 호출 문구와 음성 명령 처리 흐름을 조정했습니다.\n\nAI가 생성한 코드를 그대로 두지 않고, 실제 기기에서 동작을 확인하며 음성 호출, 위젯 표시, 안내 화면을 반복적으로 수정했습니다.',
   },
 ];
 

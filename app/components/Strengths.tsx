@@ -12,7 +12,7 @@ export default function Strengths() {
           제품 화면을 끝까지 책임지는 프론트엔드 역량
         </h2>
       </div>
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="mt-6 grid gap-4 md:grid-cols-4">
         {strengths.map((item) => (
           <article
             key={item.title}

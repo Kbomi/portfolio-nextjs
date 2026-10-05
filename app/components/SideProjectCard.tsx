@@ -73,12 +73,12 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
         createPortal(
           <dialog
             open
-            className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md transition z-50 w-full h-full"
+            className="popup-overlay fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md transition z-50 w-full h-full"
           >
-            <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
+            <div className="popup-panel bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
               {/* 헤더 */}
-              <div className="p-4 md:px-8 md:py-6 shadow-md">
-                <div className="relative flex items-center pt-8 md:pt-0">
+              <div className="popup-heading p-4 md:px-8 md:py-6 shadow-md">
+                <div className="relative flex items-center gap-3 pr-12">
                   <Image
                     src={card.thumb}
                     alt={`${card.title}의 썸네일 이미지`}
@@ -86,11 +86,11 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
                     width={500}
                     height={500}
                   />
-                  <h3 className="ml-4 text-2xl md:text-3xl font-bold text-gray-900">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                     {card.title}
                   </h3>
                   <button
-                    className="absolute right-0 top-0 z-2 md:static ml-auto text-gray-500 hover:text-gray-700 transition cursor-pointer"
+                    className="popup-close absolute right-0 top-0 z-2 md:static ml-auto text-gray-500 hover:text-gray-700 transition cursor-pointer"
                     onClick={() => setIsOpen(false)}
                     aria-label="닫기"
                   >
@@ -101,26 +101,26 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
               </div>
 
               {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
-              <div className="my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
-                <div className="flex flex-col md:flex-row mt-0 md:mt-4 space-x-6">
+              <div className="popup-body my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
+                <div className="popup-project-layout grid gap-7 md:grid-cols-2">
                   <Link
                     href={card.link}
                     target="_blank"
-                    className="relative block w-full md:w-[50%] h-80 md:h-120 border border-gray-300 rounded"
+                    className="popup-project-image relative block h-80 md:h-120"
                   >
                     <Image
                       src={card.image}
                       alt={`${card.title} 참고 이미지`}
-                      className="mb-2 rounded object-cover object-center"
+                      className="rounded-xl object-contain object-top"
                       fill
                     />
                   </Link>
-                  <div className="w-full md:w-[50%] mt-4 md:mt-0">
+                  <div className="min-w-0">
                     <p className="text-sm text-gray-700">
-                      🛠 기술 스택: {card.skill}
+                      기술 스택: {card.skill}
                     </p>
                     <p className="mt-2 md:mt-4 text-sm md:text-base">
-                      🔗 링크:{" "}
+                      링크:{" "}
                       <Link
                         href={card.link}
                         target="_blank"

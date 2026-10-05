@@ -93,17 +93,17 @@ export default function Projects() {
         createPortal(
           <dialog
             open
-            className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md transition z-50 w-full h-full"
+            className="popup-overlay fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md transition z-50 w-full h-full"
           >
-            <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
+            <div className="popup-panel bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
               {/* 헤더 */}
-              <div className="p-4 md:px-8 md:py-6 shadow-md">
+              <div className="popup-heading p-4 md:px-8 md:py-6 shadow-md">
                 <div className="flex items-center justify-between items-center">
                   <h3 className="text-3xl font-bold text-gray-900">
                     외부 프로젝트
                   </h3>
                   <button
-                    className="text-gray-500 hover:text-gray-700 transition cursor-pointer"
+                    className="popup-close text-gray-500 hover:text-gray-700 transition cursor-pointer"
                     onClick={() => setIsOpen(false)}
                     aria-label="외부 프로젝트 닫기"
                   >
@@ -116,7 +116,7 @@ export default function Projects() {
               </div>
 
               {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
-              <div className="my-6 max-h-[60vh] overflow-y-auto px-8">
+              <div className="popup-body my-6 max-h-[60vh] overflow-y-auto px-8">
                 <h4 className="text-xl font-semibold text-gray-800">
                   프로젝트 목록
                 </h4>
@@ -128,7 +128,10 @@ export default function Projects() {
                       const isOpen = openIndexes.includes(index);
 
                       return (
-                        <div key={index} className="border p-4 rounded-lg">
+                        <div
+                          key={index}
+                          className="popup-accordion border p-4 rounded-lg"
+                        >
                           {/* 타이틀 영역 */}
                           <button
                             onClick={() => toggleProject(index)}
@@ -146,13 +149,13 @@ export default function Projects() {
                           <div
                             className={`overflow-hidden transition-all duration-300 ${
                               isOpen
-                                ? "max-h-[500px] opacity-100"
+                                ? "max-h-none opacity-100"
                                 : "max-h-0 opacity-0"
                             }`}
                           >
-                            <div className="flex mt-4 space-x-6">
+                            <div className="flex flex-col gap-5 mt-5 md:flex-row">
                               {project.image && (
-                                <div className="relative w-[30%] h-64">
+                                <div className="relative w-full md:w-[35%] h-64 shrink-0">
                                   <Image
                                     src={project.image}
                                     alt={project.title}
@@ -163,10 +166,10 @@ export default function Projects() {
                               )}
                               <div className="space-y-2">
                                 <p className="text-sm text-gray-700">
-                                  📅 기간: {project.period}
+                                  기간: {project.period}
                                 </p>
                                 <p className="text-sm text-gray-700">
-                                  🛠 기술스택: {project.skill}
+                                  기술스택: {project.skill}
                                 </p>
                                 <p className="mt-4 whitespace-break-spaces">
                                   작업: {project.content}

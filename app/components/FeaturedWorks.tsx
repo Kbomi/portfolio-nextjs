@@ -27,7 +27,7 @@ function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
       ref={ref}
       onCancel={onClose}
       aria-labelledby="featured-dialog-title"
-      className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-32px)] max-w-3xl overflow-y-auto rounded-2xl bg-[#fafaf6] p-0 text-[#222b26] shadow-2xl backdrop:bg-black/50"
+      className="popup-native fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-32px)] max-w-3xl overflow-y-auto rounded-2xl bg-[#fafaf6] p-0 text-[#222b26] shadow-2xl backdrop:bg-black/50"
       onClick={(event) => {
         if (event.target === event.currentTarget) {
           const rect = event.currentTarget.getBoundingClientRect();
@@ -41,7 +41,7 @@ function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
         }
       }}
     >
-      <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[#d9e0d4] bg-[#fafaf6] p-6 md:p-8">
+      <div className="popup-heading sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[#d9e0d4] bg-[#fafaf6] p-6 md:p-8">
         <div>
           <p className="eyebrow">{work.period}</p>
           <h3 id="featured-dialog-title" className="mt-3 text-2xl font-bold">
@@ -52,12 +52,12 @@ function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
           type="button"
           aria-label="상세 경험 닫기"
           onClick={onClose}
-          className="rounded-full p-2 text-primary hover:bg-sub-primary"
+          className="popup-close rounded-full p-2 text-primary hover:bg-sub-primary"
         >
           <X size={22} />
         </button>
       </div>
-      <div className="space-y-7 p-6 md:p-8">
+      <div className="popup-body space-y-7 p-6 md:p-8">
         <p className="text-sm leading-7 text-[#667068]">{work.summary}</p>
         <div className="flex flex-wrap gap-2">
           {work.stack.split(", ").map((stack) => (

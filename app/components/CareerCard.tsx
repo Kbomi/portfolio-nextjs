@@ -73,17 +73,17 @@ export default function CareerCard({ card }: { card: CareerProps }) {
         createPortal(
           <dialog
             open
-            className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md transition z-50 w-full h-full"
+            className="popup-overlay fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md transition z-50 w-full h-full"
           >
-            <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
+            <div className="popup-panel bg-white rounded-3xl shadow-2xl max-w-4xl w-[90%] max-h-[90vh] overflow-hidden">
               {/* 헤더 */}
-              <div className="p-4 md:px-8 md:py-6 shadow-md">
+              <div className="popup-heading p-4 md:px-8 md:py-6 shadow-md">
                 <div className="flex items-center justify-between items-center">
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                     {card.title}
                   </h3>
                   <button
-                    className="text-gray-500 hover:text-gray-700 transition cursor-pointer"
+                    className="popup-close text-gray-500 hover:text-gray-700 transition cursor-pointer"
                     onClick={() => setIsOpen(false)}
                     aria-label="닫기"
                   >
@@ -104,7 +104,7 @@ export default function CareerCard({ card }: { card: CareerProps }) {
               </div>
 
               {/* 스크롤 가능한 콘텐츠 영역 프로젝트 리스트 */}
-              <div className="my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
+              <div className="popup-body my-4 md:my-6 max-h-[60vh] overflow-y-auto px-4 md:px-8">
                 <h4 className="text-xl font-semibold text-gray-800">
                   주요 업무
                 </h4>
@@ -119,15 +119,15 @@ export default function CareerCard({ card }: { card: CareerProps }) {
                         </h4>
                         <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center mt-1">
                           <p className="text-sm text-gray-700">
-                            📅 기간: {project.date}
+                            기간: {project.date}
                           </p>
                           <p className="text-sm text-gray-700">
-                            🛠 기술 스택: {project.skill}
+                            기술 스택: {project.skill}
                           </p>
                         </div>
                         {project.url?.length && (
                           <p className="flex gap-2 mt-2 text-sm text-gray-600">
-                            🔗 URL:
+                            URL:
                             {project.url.map((item, index) => (
                               <Link
                                 key={index}

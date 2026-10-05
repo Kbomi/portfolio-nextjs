@@ -52,7 +52,7 @@ export default function SideProjectCard({ card }: { card: SideProjectProps }) {
           width={500}
           height={500}
           sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-          className="h-[210px] w-full border-b border-[#d9e0d4] bg-[#eef2e9] object-cover object-top md:h-[190px]"
+          className={`h-[210px] w-full border-b border-[#d9e0d4] bg-[#eef2e9] object-cover md:h-[190px] ${card.id === 10 ? "object-[center_30%]" : "object-top"}`}
         />
         <div className="flex flex-1 flex-col p-6">
           <h3 className="text-base font-bold leading-6">{card.title}</h3>

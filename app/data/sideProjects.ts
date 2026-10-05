@@ -121,6 +121,17 @@ const sideProjects: SideProjectProps[] = [
     content:
       'AI 바이브 코딩으로 시작한 Flutter 메모 앱입니다.\n말로 장보기 항목을 추가하고, 앱과 홈 화면 위젯에서 확인할 수 있도록 구성했습니다.\n\n특히 Siri 단축어 등록과 Bixby 음성 호출 연동을 중점적으로 다듬었습니다. 사용자가 "똑똑이한테 추가해줘"처럼 말하면 항목을 앱에 추가할 수 있도록 호출 문구와 음성 명령 처리 흐름을 조정했습니다.\n\nAI가 생성한 코드를 그대로 두지 않고, 실제 기기에서 동작을 확인하며 음성 호출, 위젯 표시, 안내 화면을 반복적으로 수정했습니다.',
   },
+  {
+    id: 10,
+    title: "부부사이 - 마음과 일상을 나누는 앱",
+    description: "하루 기록과 시그널로 마음을 나누고, 대화카드와 공유 캘린더로 확장 중인 부부 소통 앱.",
+    skill: "Flutter, Dart, Provider, Supabase, Firebase Cloud Messaging",
+    thumb: "/sideproject/bubu.webp",
+    image: "/sideproject/bubu.webp",
+    link: "https://bubu10min.kko-kkuri.com/",
+    content:
+      "부부의 관계 개선을 돕고자 하루 기록·공유와 ‘시그널’ 알림 기능을 갖춘 앱을 2026년 9월 출시했습니다.\n\n초기 사용자 확보와 시장 반응이 기대에 미치지 못해 제품 방향을 재검토했습니다. 현재는 하루에 하나씩 생성되는 대화카드에 서로 답변하며 생각을 나누고, 상대를 더 이해하는 경험을 개발하고 있습니다.\n\n감성적인 대화 경험과 함께 일정을 공유하는 캘린더 기능도 개발 중입니다. 대화카드와 공유 캘린더는 아직 출시 전이며, 경조사 장부는 향후 추가할 계획입니다.",
+  },
 ];
 
 export default sideProjects;

@@ -1,166 +1,213 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { X } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { featuredWorks } from "../data/profile";
 
-export default function FeaturedWorks() {
-  const [selectedWork, setSelectedWork] = useState<
-    (typeof featuredWorks)[number] | null
-  >(null);
+type Work = (typeof featuredWorks)[number];
 
+function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
+  const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedWork(null);
-      }
-    };
-
-    if (selectedWork) {
-      document.body.style.overflow = "hidden";
-      document.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKeyDown);
-    }
-
+    const dialog = ref.current;
+    const previousFocus = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    dialog?.showModal();
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKeyDown);
+      dialog?.close();
+      document.body.style.overflow = previousOverflow;
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
     };
-  }, [selectedWork]);
+  }, []);
+  return createPortal(
+    <dialog
+      ref={ref}
+      onCancel={onClose}
+      aria-labelledby="featured-dialog-title"
+      className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-32px)] max-w-3xl overflow-y-auto rounded-2xl bg-[#fafaf6] p-0 text-[#222b26] shadow-2xl backdrop:bg-black/50"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          const rect = event.currentTarget.getBoundingClientRect();
+          if (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+          )
+            onClose();
+        }
+      }}
+    >
+      <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[#d9e0d4] bg-[#fafaf6] p-6 md:p-8">
+        <div>
+          <p className="eyebrow">{work.period}</p>
+          <h3 id="featured-dialog-title" className="mt-3 text-2xl font-bold">
+            {work.title}
+          </h3>
+        </div>
+        <button
+          type="button"
+          aria-label="상세 경험 닫기"
+          onClick={onClose}
+          className="rounded-full p-2 text-primary hover:bg-sub-primary"
+        >
+          <X size={22} />
+        </button>
+      </div>
+      <div className="space-y-7 p-6 md:p-8">
+        <p className="text-sm leading-7 text-[#667068]">{work.summary}</p>
+        <div className="flex flex-wrap gap-2">
+          {work.stack.split(", ").map((stack) => (
+            <span key={stack} className="pill">
+              {stack}
+            </span>
+          ))}
+        </div>
+        <section>
+          <h4 className="font-bold">상황</h4>
+          <p className="mt-3 whitespace-pre-line text-sm leading-7 text-[#667068]">
+            {work.detail.context}
+          </p>
+        </section>
+        <section>
+          <h4 className="font-bold">역할</h4>
+          <p className="mt-3 whitespace-pre-line text-sm leading-7 text-[#667068]">
+            {work.detail.role}
+          </p>
+        </section>
+        <section>
+          <h4 className="font-bold">구현</h4>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-[#667068]">
+            {work.detail.implementation.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+        <section className="rounded-xl bg-[#eef2e9] p-5">
+          <h4 className="font-bold text-primary">결과</h4>
+          <p className="mt-3 whitespace-pre-line text-sm leading-7 text-[#45614e]">
+            {work.detail.result}
+          </p>
+        </section>
+      </div>
+    </dialog>,
+    document.body,
+  );
+}
 
+export default function FeaturedWorks() {
+  const [selectedWork, setSelectedWork] = useState<Work | null>(null);
   return (
-    <>
-      <section id="featured" className="bg-light-primary">
-        <div className="container max-w-screen-xl mx-auto scroll-mt-16 px-6 py-10 md:py-16">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold text-primary">
-              Representative Work
-            </p>
-            <h2 className="mt-2 text-2xl md:text-3xl font-bold">대표 경험</h2>
-            <p className="mt-4 text-sm md:text-base leading-7 text-gray-800 dark:text-gray-200">
-              프론트엔드 역량을 잘 보여줄 수 있는 실무 경험을 정리했습니다.
-            </p>
+    <section id="featured" className="border-y border-[#e1e5da] bg-[#eef2e9]">
+      <div className="shell section-space">
+        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow">01 / Selected experiences</p>
+            <h2 className="section-title">운영에서 배운 것, 직접 만든 것.</h2>
           </div>
-
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {featuredWorks.map((work) => (
-              <article
-                key={work.title}
-                className="group flex cursor-pointer flex-col rounded-lg bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                role="button"
-                tabIndex={0}
-                aria-label={`${work.title} 상세 보기`}
-                onClick={() => setSelectedWork(work)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    setSelectedWork(work);
-                  }
-                }}
-              >
-                <div className="flex min-h-[116px] flex-col">
-                  <p className="text-sm font-bold text-primary">
-                    {work.period}
+          <p className="max-w-sm text-sm leading-7 text-[#667068]">
+            실무 서비스의 개선부터 개인 앱 개발까지.
+            <br />두 가지 경험으로 구현 과정을 소개합니다.
+          </p>
+        </div>
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2">
+          {featuredWorks.map((work, index) => (
+            <article
+              key={work.title}
+              className="flex flex-col overflow-hidden rounded-2xl border border-[#d9e0d4] bg-[#fafaf6]"
+            >
+              {index === 0 ? (
+                <div className="flex min-h-[250px] flex-col justify-between bg-[#244f41] p-7 text-[#edf3e5] md:min-h-[280px] md:p-9">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] tracking-[.18em] text-[#c1d1b6]">
+                      SMART FARM · WEB & APP
+                    </span>
+                    <Leaf size={26} strokeWidth={1.5} />
+                  </div>
+                  <div className="mt-10">
+                    <p className="text-[34px] font-bold tracking-tight md:text-[40px]">
+                      컬티데이터
+                    </p>
+                    <p className="mt-3 text-sm text-[#c1d1b6]">
+                      재배 데이터를 더 명확하게, 어디서든.
+                    </p>
+                  </div>
+                  <div className="mt-8 flex gap-3 text-[11px] text-[#c1d1b6]">
+                    <span>웹 운영 및 개선</span>
+                    <span aria-hidden="true">/</span>
+                    <span>Flutter 앱 개발</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative flex min-h-[250px] flex-col justify-between overflow-hidden bg-[#f1eadd] p-7 md:min-h-[280px] md:p-9">
+                  <p className="text-[11px] tracking-[.18em] text-[#7a715f]">
+                    DAILY CONNECTION · FLUTTER APP
                   </p>
-                  <h3 className="mt-2 text-xl font-bold text-gray-900">
-                    {work.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-700">
-                    {work.summary}
+                  <div className="relative z-10 mt-8 max-w-[55%]">
+                    <p className="text-[34px] font-bold tracking-tight text-[#504b3b] md:text-[40px]">
+                      부부사이
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-[#7a715f] [word-break:keep-all]">
+                      하루 끝, 서로를 조금 더 알아가는 시간.
+                    </p>
+                  </div>
+                  <Image
+                    src="/featured/bubu-characters.png"
+                    alt="부부사이 앱의 고구마와 감자 캐릭터"
+                    width={220}
+                    height={220}
+                    className="absolute right-2 bottom-1 h-auto w-[44%] max-w-[225px]"
+                  />
+                  <p className="mt-8 text-[11px] text-[#7a715f]">
+                    개인 프로젝트 · 개발 중
                   </p>
                 </div>
-                <p className="mt-4 rounded-md bg-gray-50 px-3 py-2 text-xs font-bold text-gray-700">
-                  {work.stack}
+              )}
+              <div className="flex flex-1 flex-col p-6 md:p-8">
+                <p className="text-[11px] font-bold text-[#77816e]">
+                  {work.period}
                 </p>
-                <ul className="mt-4 space-y-2 text-sm leading-6 text-gray-700">
+                <h3 className="mt-3 text-xl font-bold">{work.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#667068]">
+                  {work.summary}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {work.stack.split(", ").map((stack) => (
+                    <span className="pill" key={stack}>
+                      {stack}
+                    </span>
+                  ))}
+                </div>
+                <ul className="mt-6 space-y-3 border-t border-[#e1e5da] pt-6 text-sm leading-7 text-[#5d685d]">
                   {work.points.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
+                    <li key={point} className="flex gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-3 h-1 w-1 flex-none rounded-full bg-primary"
+                      />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-auto pt-5 text-sm font-bold text-primary underline-offset-4 group-hover:underline">
-                  자세히 보기
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {selectedWork &&
-        createPortal(
-          <dialog
-            open
-            className="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-black/50 p-4 backdrop-blur-md"
-          >
-            <div className="max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl">
-              <div className="flex items-start justify-between gap-4 border-b border-gray-100 p-5 md:p-7">
-                <div>
-                  <p className="text-sm font-bold text-primary">
-                    {selectedWork.period}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-bold text-gray-900 md:text-3xl">
-                    {selectedWork.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-700">
-                    {selectedWork.summary}
-                  </p>
-                </div>
                 <button
                   type="button"
-                  className="rounded-full p-1 text-gray-500 transition hover:bg-gray-100 hover:text-gray-800"
-                  aria-label="닫기"
-                  onClick={() => setSelectedWork(null)}
+                  aria-label={`${work.title} 상세 보기`}
+                  className="mt-auto flex w-fit items-center gap-3 pt-7 text-sm font-bold text-primary underline-offset-4 hover:underline"
+                  onClick={() => setSelectedWork(work)}
                 >
-                  <X size={26} />
+                  구현 과정 자세히 보기 <ArrowUpRight size={17} />
                 </button>
               </div>
-
-              <div className="max-h-[64vh] overflow-y-auto p-5 md:p-7">
-                <p className="rounded-md bg-gray-50 px-3 py-2 text-xs font-bold text-gray-700">
-                  {selectedWork.stack}
-                </p>
-                <div className="mt-6 grid gap-5">
-                  <section>
-                    <h4 className="text-base font-bold text-gray-900">상황</h4>
-                    <p className="mt-2 whitespace-pre-line text-sm leading-6 text-gray-700">
-                      {selectedWork.detail.context}
-                    </p>
-                  </section>
-                  <section>
-                    <h4 className="text-base font-bold text-gray-900">역할</h4>
-                    <p className="mt-2 whitespace-pre-line text-sm leading-6 text-gray-700">
-                      {selectedWork.detail.role}
-                    </p>
-                  </section>
-                  <section>
-                    <h4 className="text-base font-bold text-gray-900">구현</h4>
-                    <ul className="mt-2 space-y-2 text-sm leading-6 text-gray-700">
-                      {selectedWork.detail.implementation.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                  <section>
-                    <h4 className="text-base font-bold text-gray-900">결과</h4>
-                    <p className="mt-2 whitespace-pre-line text-sm leading-6 text-gray-700">
-                      {selectedWork.detail.result}
-                    </p>
-                  </section>
-                </div>
-              </div>
-            </div>
-          </dialog>,
-          document.body,
-        )}
-    </>
+            </article>
+          ))}
+        </div>
+      </div>
+      {selectedWork && (
+        <WorkDialog work={selectedWork} onClose={() => setSelectedWork(null)} />
+      )}
+    </section>
   );
 }

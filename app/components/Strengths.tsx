@@ -1,32 +1,41 @@
 import { strengths } from "../data/profile";
-
 export default function Strengths() {
   return (
     <section
       id="strengths"
-      className="container max-w-screen-xl mx-auto scroll-mt-16 px-6 pb-8 md:pb-14"
+      className="shell section-space border-b border-[#e1e5da]"
     >
-      <div className="max-w-3xl">
-        <p className="text-sm font-bold text-primary">Core Strengths</p>
-        <h2 className="mt-2 text-2xl md:text-3xl font-bold">
-          제품 화면을 끝까지 책임지는 프론트엔드 역량
-        </h2>
-      </div>
-      <div className="mt-6 grid gap-4 md:grid-cols-4">
-        {strengths.map((item) => (
-          <article
-            key={item.title}
-            className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
-          >
-            <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-gray-700">
-              {item.description}
-            </p>
-            <p className="mt-4 rounded-md bg-gray-50 px-3 py-2 text-xs font-bold text-gray-600">
-              관련 경험: {item.related}
-            </p>
-          </article>
-        ))}
+      <div className="grid gap-8 md:grid-cols-[1fr_1.7fr] md:gap-20">
+        <div>
+          <p className="eyebrow">02 / What I bring</p>
+          <h2 className="section-title">
+            화면 너머의 흐름까지
+            <br />
+            생각합니다.
+          </h2>
+          <p className="section-description">
+            UI 구현부터 데이터 연동, 운영 개선까지.
+            <br />
+            서비스를 만드는 과정에서 쌓은 역량입니다.
+          </p>
+        </div>
+        <div className="grid gap-x-8 gap-y-9 sm:grid-cols-2">
+          {strengths.map((item, index) => (
+            <article
+              key={item.title}
+              className="border-t border-[#d9e0d4] pt-5"
+            >
+              <p className="text-xs text-[#7d8a75]">0{index + 1}</p>
+              <h3 className="mt-3 text-base font-bold">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#667068]">
+                {item.description}
+              </p>
+              <p className="mt-4 text-[11px] leading-6 text-primary">
+                {item.related}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

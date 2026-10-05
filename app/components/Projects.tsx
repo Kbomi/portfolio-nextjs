@@ -41,7 +41,7 @@ export default function Projects() {
 
   return (
     <>
-      <section id="project" className="shell section-space">
+      <section id="project" className="shell section-space collaborations-surface">
         <div className="grid gap-8 md:grid-cols-[1fr_1.7fr] md:gap-20">
           <div>
             <p className="eyebrow">05 / Collaborations</p>
@@ -71,9 +71,10 @@ export default function Projects() {
               .map((project, index) => (
                 <div
                   key={project.id}
+                  data-reveal
                   className="flex gap-5 border-t border-[#d9e0d4] py-6"
                 >
-                  <span className="pt-1 text-xs text-[#7d8a75]">
+                  <span className="collaboration-number">
                     0{index + 1}
                   </span>
                   <div>

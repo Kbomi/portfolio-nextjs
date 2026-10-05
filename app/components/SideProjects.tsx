@@ -4,7 +4,7 @@ export default function SideProjects() {
   return (
     <section
       id="sideproject"
-      className="border-y border-[#e1e5da] bg-[#f0f3eb]"
+      className="sideproject-surface"
     >
       <div className="shell section-space">
         <p className="eyebrow">04 / Side projects</p>

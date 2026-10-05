@@ -1,3 +1,5 @@
+import AboutStory from "./components/AboutStory";
+import ProjectRibbon from "./components/ProjectRibbon";
 import PortfolioMotion from "./components/PortfolioMotion";
 import Career from "./components/Career";
 import FeaturedWorks from "./components/FeaturedWorks";
@@ -15,6 +17,8 @@ export default function Home() {
       <Header />
       <main id="main-content">
         <Introduce />
+        <ProjectRibbon />
+        <AboutStory />
         <FeaturedWorks />
         <Strengths />
         <Career />

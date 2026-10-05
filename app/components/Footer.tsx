@@ -1,12 +1,13 @@
 import { ArrowUpRight, Github, Mail } from "lucide-react";
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-[#234c3e] text-white">
+    <footer id="footer" className="contact-surface text-white">
       <div className="shell section-space">
+        <p className="contact-display" aria-hidden="true" data-reveal>LET’S BUILD<span>TOGETHER.</span></p>
         <p className="text-[11px] font-bold tracking-[.16em] text-[#bed0b4]">
           06 / Let&apos;s connect
         </p>
-        <div className="mt-4 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <div data-reveal className="mt-4 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <h2 className="text-3xl font-bold leading-relaxed tracking-tight md:text-4xl">
               함께 만들 다음 경험이

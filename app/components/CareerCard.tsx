@@ -33,6 +33,7 @@ export default function CareerCard({ card }: { card: CareerProps }) {
   return (
     <>
       <article
+        data-reveal
         className="group relative cursor-pointer border-b border-l border-[#d9e0d4] py-7 pl-7 transition hover:bg-[#f1f3ec]"
         role="button"
         tabIndex={0}

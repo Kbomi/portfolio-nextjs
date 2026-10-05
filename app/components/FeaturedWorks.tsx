@@ -162,7 +162,7 @@ export default function FeaturedWorks() {
                     className="absolute right-2 bottom-1 h-auto w-[44%] max-w-[225px]"
                   />
                   <p className="mt-8 text-[11px] text-[#7a715f]">
-                    개인 프로젝트 · 개발 중
+                    2026.09 출시 · 업데이트 개발 중
                   </p>
                 </div>
               )}

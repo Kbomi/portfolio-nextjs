@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
-import { ArrowUpRight, Leaf, X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { featuredWorks } from "../data/profile";
+import WorkScreens, { WorkScreenGallery } from "./WorkScreens";
 
 type Work = (typeof featuredWorks)[number];
 
 function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
+  const workIndex = featuredWorks.indexOf(work);
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const dialog = ref.current;
@@ -67,6 +68,11 @@ function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
           ))}
         </div>
         <section>
+          <h4 className="font-bold">서비스 화면</h4>
+          {workIndex === 1 && <p className="mt-3">부부10분은 2026년 9월 출시한 첫 버전입니다. 부부사이 화면은 개발 중인 새 버전이며, 대화카드와 공유 캘린더는 아직 구현 중입니다.</p>}
+          <WorkScreenGallery index={workIndex} />
+        </section>
+        <section>
           <h4 className="font-bold">상황</h4>
           <p className="mt-3 whitespace-pre-line text-sm leading-7 text-[#667068]">
             {work.detail.context}
@@ -113,60 +119,14 @@ export default function FeaturedWorks() {
             <br />두 가지 경험으로 구현 과정을 소개합니다.
           </p>
         </div>
-        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2">
+        <div className="showcase-stack mt-10">
           {featuredWorks.map((work, index) => (
             <article
               key={work.title}
-              className="flex flex-col overflow-hidden rounded-2xl border border-[#d9e0d4] bg-[#fafaf6]"
+              className="showcase-card"
             >
-              {index === 0 ? (
-                <div className="flex min-h-[250px] flex-col justify-between bg-[#244f41] p-7 text-[#edf3e5] md:min-h-[280px] md:p-9">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] tracking-[.18em] text-[#c1d1b6]">
-                      SMART FARM · WEB & APP
-                    </span>
-                    <Leaf size={26} strokeWidth={1.5} />
-                  </div>
-                  <div className="mt-10">
-                    <p className="text-[34px] font-bold tracking-tight md:text-[40px]">
-                      컬티데이터
-                    </p>
-                    <p className="mt-3 text-sm text-[#c1d1b6]">
-                      재배 데이터를 더 명확하게, 어디서든.
-                    </p>
-                  </div>
-                  <div className="mt-8 flex gap-3 text-[11px] text-[#c1d1b6]">
-                    <span>웹 운영 및 개선</span>
-                    <span aria-hidden="true">/</span>
-                    <span>Flutter 앱 개발</span>
-                  </div>
-                </div>
-              ) : (
-                <div className="relative flex min-h-[250px] flex-col justify-between overflow-hidden bg-[#f1eadd] p-7 md:min-h-[280px] md:p-9">
-                  <p className="text-[11px] tracking-[.18em] text-[#7a715f]">
-                    DAILY CONNECTION · FLUTTER APP
-                  </p>
-                  <div className="relative z-10 mt-8 max-w-[55%]">
-                    <p className="text-[34px] font-bold tracking-tight text-[#504b3b] md:text-[40px]">
-                      부부사이
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-[#7a715f] [word-break:keep-all]">
-                      하루 끝, 서로를 조금 더 알아가는 시간.
-                    </p>
-                  </div>
-                  <Image
-                    src="/featured/bubu-characters.png"
-                    alt="부부사이 앱의 고구마와 감자 캐릭터"
-                    width={220}
-                    height={220}
-                    className="absolute right-2 bottom-1 h-auto w-[44%] max-w-[225px]"
-                  />
-                  <p className="mt-8 text-[11px] text-[#7a715f]">
-                    2026.09 출시 · 업데이트 개발 중
-                  </p>
-                </div>
-              )}
-              <div className="flex flex-1 flex-col p-6 md:p-8">
+              <WorkScreens index={index} />
+              <div className="showcase-copy">
                 <p className="text-[11px] font-bold text-[#77816e]">
                   {work.period}
                 </p>

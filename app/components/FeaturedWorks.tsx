@@ -69,7 +69,12 @@ function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
         </div>
         <section>
           <h4 className="font-bold">서비스 화면</h4>
-          {workIndex === 1 && <p className="mt-3">부부10분은 2026년 9월 출시한 첫 버전입니다. 부부사이 화면은 개발 중인 새 버전이며, 대화카드와 공유 캘린더는 아직 구현 중입니다.</p>}
+          {workIndex === 1 && (
+            <p className="mt-3">
+              부부10분은 2026년 9월 출시한 첫 버전입니다. 부부사이 화면은 개발
+              중인 새 버전이며, 대화카드와 공유 캘린더는 아직 구현 중입니다.
+            </p>
+          )}
           <WorkScreenGallery index={workIndex} />
         </section>
         <section>
@@ -111,15 +116,26 @@ export default function FeaturedWorks() {
       <div className="shell section-space experience-heading">
         <p className="eyebrow">01 / Selected experiences</p>
         <h2 className="section-title">운영에서 배운 것, 직접 만든 것.</h2>
-        <p className="section-description">웹에서 앱으로, 출시에서 다음 버전으로.<br />스크롤하며 두 가지 경험을 만나보세요.</p>
+        <p className="section-description">
+          웹에서 앱으로, 출시에서 다음 버전으로.
+          <br />
+          대표적인 프로젝트 2가지입니다.
+        </p>
       </div>
       {featuredWorks.map((work, index) => (
-        <article key={work.title} className={`experience-track ${index === 0 ? "experience-culti" : "experience-bubu"}`}>
+        <article
+          key={work.title}
+          className={`experience-track ${index === 0 ? "experience-culti" : "experience-bubu"}`}
+        >
           <div className="experience-stage">
             <div className="shell experience-layout">
               <div className="experience-stage-heading">
                 <span>{index === 0 ? "01 / CULTIDATA" : "02 / BUBUSAI"}</span>
-                <span>{index === 0 ? "WEB → FLUTTER APP" : "출시 → 업데이트 개발 중"}</span>
+                <span>
+                  {index === 0
+                    ? "WEB → FLUTTER APP"
+                    : "출시 → 업데이트 개발 중"}
+                </span>
               </div>
               <WorkScreens index={index} />
               <div className="experience-copy">
@@ -127,16 +143,30 @@ export default function FeaturedWorks() {
                 <h3>{work.title}</h3>
                 <p className="experience-summary">{work.summary}</p>
                 <div className="experience-stack">
-                  {work.stack.split(", ").map((stack) => <span key={stack}>{stack}</span>)}
+                  {work.stack.split(", ").map((stack) => (
+                    <span key={stack}>{stack}</span>
+                  ))}
                 </div>
                 <ul className="experience-points">
-                  {work.points.map((point) => <li key={point}>{point}</li>)}
+                  {work.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
                 </ul>
-                <button type="button" aria-label={`${work.title} 상세 보기`} className="experience-detail" onClick={() => setSelectedWork(work)}>
+                <button
+                  type="button"
+                  aria-label={`${work.title} 상세 보기`}
+                  className="experience-detail"
+                  onClick={() => setSelectedWork(work)}
+                >
                   구현 과정과 화면 보기 <ArrowUpRight size={18} />
                 </button>
               </div>
-              <div className="experience-scroll-cue" aria-hidden="true"><span>SCROLL TO EXPLORE</span><div><i /></div></div>
+              <div className="experience-scroll-cue" aria-hidden="true">
+                <span>SCROLL TO EXPLORE</span>
+                <div>
+                  <i />
+                </div>
+              </div>
             </div>
           </div>
         </article>

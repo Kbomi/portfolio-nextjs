@@ -32,28 +32,44 @@ export function WorkScreenGallery({ index }: { index: number }) {
   );
 }
 
+function Device({ kind, first, next, className }: { kind: "monitor" | "phone"; first: string; next: string; className: string }) {
+  return (
+    <div className={`scene-device scene-${kind} ${className}`} aria-hidden="true">
+      <div className="device-solid">
+        <div className="device-back" />
+        <div className="device-edge edge-left" /><div className="device-edge edge-right" />
+        <div className="device-edge edge-top" /><div className="device-edge edge-bottom" />
+        <div className="device-front">
+          <div className="device-screen">
+            <Image src={`${root}${first}.webp`} alt="" fill sizes="(max-width: 639px) 50vw, 460px" className="device-screen-first" />
+            <Image src={`${root}${next}.webp`} alt="" fill sizes="(max-width: 639px) 50vw, 460px" className="device-screen-next" />
+          </div>
+          <div className="device-glare" />
+        </div>
+      </div>
+      {kind === "monitor" && <><div className="monitor-neck" /><div className="monitor-foot" /></>}
+    </div>
+  );
+}
+
 export default function WorkScreens({ index }: { index: number }) {
   return (
-    <div className={`showcase-visual ${index === 0 ? "showcase-culti" : "showcase-bubu"}`}>
-      <div className="showcase-visual-heading">
-        <p>{index === 0 ? "SMART FARM / WEB → APP" : "DAILY CONNECTION / FLUTTER"}</p>
-        <h4>{index === 0 ? "데이터를 더 명확하게." : "우리 둘을 더 가깝게."}</h4>
-      </div>
+    <div className="scene-visual">
+      <div className="scene-orbit" aria-hidden="true" />
+      <div className="scene-ground" aria-hidden="true" />
       {index === 0 ? (
-        <div className="showcase-collage">
-          <div className="showcase-browser">
-            <div aria-hidden="true" className="browser-dots"><i /><i /><i /><span>CultiData</span></div>
-            <Image src={`${root}culti-dashboard.webp`} alt="컬티데이터 웹 대시보드의 차트 위젯" width={1397} height={1214} sizes="(max-width: 767px) 90vw, 560px" className="h-auto w-full" />
-          </div>
-          <div className="showcase-phone culti-phone"><Image src={`${root}culti-widgets.webp`} alt="컬티데이터 Flutter 앱의 위젯 종류 선택 화면" width={1170} height={2532} sizes="(max-width: 767px) 32vw, 160px" className="h-auto w-full" /></div>
-          <div className="showcase-caption">웹 운영 경험을 모바일로 확장하다.</div>
-        </div>
+        <>
+          <Device kind="monitor" first="culti-dashboard" next="culti-intro" className="culti-monitor" />
+          <Device kind="phone" first="culti-widgets" next="culti-sensor" className="culti-mobile" />
+          <p className="scene-device-label"><span className="scene-label-first">웹에서 재배 데이터를 더 명확하게.</span><span className="scene-label-next">Flutter 앱으로 조회 경험을 확장하다.</span></p>
+        </>
       ) : (
-        <div className="showcase-collage">
-          <div className="showcase-phone bubu-phone-back"><Image src={`${root}bubu-splash.webp`} alt="개발 중인 부부사이 스플래시 화면" width={1206} height={2622} sizes="(max-width: 767px) 42vw, 210px" className="h-auto w-full" /></div>
-          <div className="showcase-phone bubu-phone-front"><Image src={`${root}bubu-invitation.webp`} alt="개발 중인 부부사이 배우자 연결 화면" width={390} height={844} sizes="(max-width: 767px) 40vw, 200px" className="h-auto w-full" /></div>
-          <div className="showcase-caption">부부10분 출시 → 부부사이 개발 중</div>
-        </div>
+        <>
+          <Device kind="phone" first="bubu-launch-home" next="bubu-splash" className="bubu-device-one" />
+          <Device kind="phone" first="bubu-launch-signal" next="bubu-invitation" className="bubu-device-two" />
+          <Image src="/featured/bubu-characters.png" alt="" width={220} height={220} className="scene-character" />
+          <p className="scene-device-label"><span className="scene-label-first">부부10분 · 2026.09 출시 화면</span><span className="scene-label-next">부부사이 · 업데이트 개발 중 화면</span></p>
+        </>
       )}
     </div>
   );

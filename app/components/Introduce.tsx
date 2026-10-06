@@ -8,7 +8,9 @@ export default function Introduce() {
         <p className="eyebrow" data-reveal>Frontend developer · Kim Bomi</p>
         <h1 className="hero-name" data-reveal><span className="sr-only">프론트엔드 개발자 김보미</span><span aria-hidden="true">KIM BOMI</span></h1>
         <div className="hero-stage" aria-hidden="true">
+          <div className="hero-floor" />
           <div className="hero-halo" />
+          <div className="hero-orbit" />
           <div className="hero-orb hero-orb-one" />
           <div className="hero-orb hero-orb-two" />
           <div className="hero-token hero-token-react"><Code2 /><span>React</span></div>

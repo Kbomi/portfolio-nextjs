@@ -107,64 +107,40 @@ function WorkDialog({ work, onClose }: { work: Work; onClose: () => void }) {
 export default function FeaturedWorks() {
   const [selectedWork, setSelectedWork] = useState<Work | null>(null);
   return (
-    <section id="featured" className="border-y border-[#e1e5da] bg-[#eef2e9]">
-      <div className="shell section-space">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div>
-            <p className="eyebrow">01 / Selected experiences</p>
-            <h2 className="section-title">운영에서 배운 것, 직접 만든 것.</h2>
-          </div>
-          <p className="max-w-sm text-sm leading-7 text-[#667068]">
-            실무 서비스의 개선부터 개인 앱 개발까지.
-            <br />두 가지 경험으로 구현 과정을 소개합니다.
-          </p>
-        </div>
-        <div className="showcase-stack mt-10">
-          {featuredWorks.map((work, index) => (
-            <article
-              key={work.title}
-              className="showcase-card"
-            >
+    <section id="featured" className="experience-section">
+      <div className="shell section-space experience-heading">
+        <p className="eyebrow">01 / Selected experiences</p>
+        <h2 className="section-title">운영에서 배운 것, 직접 만든 것.</h2>
+        <p className="section-description">웹에서 앱으로, 출시에서 다음 버전으로.<br />스크롤하며 두 가지 경험을 만나보세요.</p>
+      </div>
+      {featuredWorks.map((work, index) => (
+        <article key={work.title} className={`experience-track ${index === 0 ? "experience-culti" : "experience-bubu"}`}>
+          <div className="experience-stage">
+            <div className="shell experience-layout">
+              <div className="experience-stage-heading">
+                <span>{index === 0 ? "01 / CULTIDATA" : "02 / BUBUSAI"}</span>
+                <span>{index === 0 ? "WEB → FLUTTER APP" : "출시 → 업데이트 개발 중"}</span>
+              </div>
               <WorkScreens index={index} />
-              <div className="showcase-copy">
-                <p className="text-[11px] font-bold text-[#77816e]">
-                  {work.period}
-                </p>
-                <h3 className="mt-3 text-xl font-bold">{work.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#667068]">
-                  {work.summary}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {work.stack.split(", ").map((stack) => (
-                    <span className="pill" key={stack}>
-                      {stack}
-                    </span>
-                  ))}
+              <div className="experience-copy">
+                <p className="experience-kicker">{work.period}</p>
+                <h3>{work.title}</h3>
+                <p className="experience-summary">{work.summary}</p>
+                <div className="experience-stack">
+                  {work.stack.split(", ").map((stack) => <span key={stack}>{stack}</span>)}
                 </div>
-                <ul className="mt-6 space-y-3 border-t border-[#e1e5da] pt-6 text-sm leading-7 text-[#5d685d]">
-                  {work.points.map((point) => (
-                    <li key={point} className="flex gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="mt-3 h-1 w-1 flex-none rounded-full bg-primary"
-                      />
-                      <span>{point}</span>
-                    </li>
-                  ))}
+                <ul className="experience-points">
+                  {work.points.map((point) => <li key={point}>{point}</li>)}
                 </ul>
-                <button
-                  type="button"
-                  aria-label={`${work.title} 상세 보기`}
-                  className="mt-auto flex w-fit items-center gap-3 pt-7 text-sm font-bold text-primary underline-offset-4 hover:underline"
-                  onClick={() => setSelectedWork(work)}
-                >
-                  구현 과정 자세히 보기 <ArrowUpRight size={17} />
+                <button type="button" aria-label={`${work.title} 상세 보기`} className="experience-detail" onClick={() => setSelectedWork(work)}>
+                  구현 과정과 화면 보기 <ArrowUpRight size={18} />
                 </button>
               </div>
-            </article>
-          ))}
-        </div>
-      </div>
+              <div className="experience-scroll-cue" aria-hidden="true"><span>SCROLL TO EXPLORE</span><div><i /></div></div>
+            </div>
+          </div>
+        </article>
+      ))}
       {selectedWork && (
         <WorkDialog work={selectedWork} onClose={() => setSelectedWork(null)} />
       )}

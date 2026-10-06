@@ -33,10 +33,8 @@ export default function PortfolioMotion() {
       const words = Array.from(document.querySelectorAll<HTMLElement>(".story-word"));
       const career = document.querySelector<HTMLElement>(".career-timeline");
       const hero = document.querySelector<HTMLElement>(".motion-hero");
-      const stage = document.querySelector<HTMLElement>(".hero-stage");
       const about = document.querySelector<HTMLElement>(".about-story");
       const desktop = window.matchMedia("(min-width: 1024px) and (min-height: 760px)");
-      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
       let frame = 0;
       const update = () => {
         frame = 0;
@@ -83,14 +81,14 @@ export default function PortfolioMotion() {
       };
       const schedule = () => { if (!frame) frame = window.requestAnimationFrame(update); };
       const move = (event: PointerEvent) => {
-        if (!stage || !finePointer.matches) return;
-        const rect = stage.getBoundingClientRect();
-        stage.style.setProperty("--pointer-x", `${clamp((event.clientX - rect.left - rect.width / 2) / 35, -10, 10)}deg`);
-        stage.style.setProperty("--pointer-y", `${clamp((event.clientY - rect.top - rect.height / 2) / -35, -6, 6)}deg`);
+        if (!hero || event.pointerType === "touch") return;
+        const rect = hero.getBoundingClientRect();
+        hero.style.setProperty("--hero-pointer-x", `${clamp((event.clientX - rect.left) / rect.width * 2 - 1, -1, 1) * 18}px`);
+        hero.style.setProperty("--hero-pointer-y", `${clamp((event.clientY - rect.top) / rect.height * 2 - 1, -1, 1) * 12}px`);
       };
-      const leave = () => { stage?.style.removeProperty("--pointer-x"); stage?.style.removeProperty("--pointer-y"); };
-      stage?.addEventListener("pointermove", move);
-      stage?.addEventListener("pointerleave", leave);
+      const leave = () => { hero?.style.removeProperty("--hero-pointer-x"); hero?.style.removeProperty("--hero-pointer-y"); };
+      hero?.addEventListener("pointermove", move);
+      hero?.addEventListener("pointerleave", leave);
       window.addEventListener("scroll", schedule, { passive: true });
       window.addEventListener("resize", schedule);
       update();
@@ -99,8 +97,8 @@ export default function PortfolioMotion() {
         window.removeEventListener("scroll", schedule);
         window.removeEventListener("resize", schedule);
         window.cancelAnimationFrame(frame);
-        stage?.removeEventListener("pointermove", move);
-        stage?.removeEventListener("pointerleave", leave);
+        hero?.removeEventListener("pointermove", move);
+        hero?.removeEventListener("pointerleave", leave);
         leave();
         targets.forEach((target) => { target.classList.remove("motion-reveal", "motion-visible"); target.style.removeProperty("--reveal-delay"); });
         words.forEach((word) => word.style.removeProperty("opacity"));

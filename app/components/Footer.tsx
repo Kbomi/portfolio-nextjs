@@ -10,9 +10,9 @@ export default function Footer() {
         <div data-reveal className="mt-4 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <h2 className="text-3xl font-bold leading-relaxed tracking-tight md:text-4xl">
-              함께 만들 다음 경험이
+              함께 일할 기회를
               <br />
-              기대됩니다.
+              기다립니다.
             </h2>
             <a
               href="mailto:93rlaqhal@gmail.com"

@@ -381,7 +381,6 @@ footer[id] {
 .hero-stage { position: relative; flex: 1; min-height: 330px; perspective: 1100px; width: 100%; }
 .hero-portrait { position: absolute; width: min(46%, 450px); left: 50%; bottom: -40px; transform: translateX(-50%) translateY(calc(var(--hero-lift, 0px) * -.35)) rotateX(var(--pointer-y, 0deg)) rotateY(var(--pointer-x, 0deg)); transition: transform .35s ease-out; z-index: 2; }
 .hero-portrait img { width: 100%; height: auto; filter: drop-shadow(0 22px 18px rgb(42 59 27 / 12%)); }
-.hero-halo { width: 390px; height: 390px; max-width: 55vw; max-height: 55vw; position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-25deg); border: 24px solid #adc099; border-radius: 50%; box-shadow: inset 0 5px 15px #647851, 0 18px 16px rgb(30 55 26 / 9%); opacity: .6; }
 .hero-orb { position: absolute; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #dfe9bd, #92ab6a 45%, #345b36 85%); box-shadow: 0 24px 30px rgb(50 69 35 / 16%); }
 .hero-orb-one { width: 90px; height: 90px; left: 13%; top: 20%; transform: translateY(calc(var(--hero-lift, 0px) * .5)); }
 .hero-orb-two { width: 44px; height: 44px; right: 15%; bottom: 32%; background: radial-gradient(circle at 30% 25%, #fff5db, #d4b580 55%, #987b51); transform: translateY(calc(var(--hero-lift, 0px) * -.4)); }
@@ -521,8 +520,6 @@ footer[id] {
 .hero-stage { transform-style: preserve-3d; }
 .hero-floor { position: absolute; width: min(520px, 70%); height: 120px; left: 50%; bottom: -35px; border-radius: 50%; transform: translateX(-50%) rotateX(70deg) translateZ(-70px); background: radial-gradient(ellipse, rgb(44 64 30 / 23%), rgb(99 123 62 / 7%) 55%, transparent 70%); }
 .hero-portrait { transform: translateX(-50%) translateZ(90px) translateY(calc(var(--hero-lift, 0px) * -.35)) rotateX(var(--pointer-y, 0deg)) rotateY(var(--pointer-x, 0deg)); }
-.hero-orbit { position: absolute; left: 50%; top: 45%; width: 460px; height: 460px; max-width: 65vw; max-height: 65vw; border-radius: 50%; border: 8px solid #e6d5aa; box-shadow: inset 0 3px 5px #a28d5c, 0 8px 0 #c6b781; transform: translateX(-50%) translateY(-50%) translateZ(-100px) rotateX(72deg) rotateY(var(--pointer-x, 0deg)) rotateZ(-30deg); opacity: .65; }
-.hero-halo { transform: translate(-50%, -50%) translateZ(-40px) rotateX(calc(62deg + var(--pointer-y, 0deg))) rotateZ(-25deg); }
 .hero-token { transform-style: preserve-3d; }
 .hero-token-react { transform: translateZ(125px) rotateY(-15deg) rotateZ(-12deg) translateY(calc(var(--hero-lift, 0px) * .3)); }
 .hero-token-flutter { transform: translateZ(20px) rotateY(18deg) rotateZ(12deg) translateY(calc(var(--hero-lift, 0px) * -.3)); }
@@ -628,4 +625,11 @@ footer[id] {
   .experience-track { height: auto; --screen-next: 1 !important; --scene-turn: 7deg !important; --scene-tilt: -2deg !important; --scene-lift: 0px !important; --scene-scale: 1 !important; }
   .experience-stage { position: relative; top: auto; height: auto; min-height: 0; }
   .hero-portrait { transform: translateX(-50%) translateZ(25px); }
+}
+
+/* A raised nameplate with a lit face and an extruded green edge. */
+.hero-name > span[aria-hidden] { position: relative; isolation: isolate; background-image: linear-gradient(175deg, #72947a 0%, #315f4b 25%, #244b3e 55%, #8eae76 100%); }
+.hero-name > span[aria-hidden]::before { content: attr(data-text); position: absolute; inset: 0; z-index: -1; color: #294638; -webkit-text-fill-color: #294638; text-shadow: 1px 1px 0 #405c43, 2px 2px 0 #405c43, 3px 3px 0 #3d5940, 4px 4px 0 #39553d, 5px 5px 0 #36513a, 6px 6px 0 #334d37, 7px 7px 0 #304933, 8px 8px 0 #2d452f, 9px 9px 0 #29412c, 10px 10px 0 #263d29, 13px 16px 8px rgb(39 65 34 / 18%), 18px 24px 20px rgb(39 65 34 / 12%); }
+@media (max-width: 639px) {
+  .hero-name > span[aria-hidden]::before { text-shadow: 1px 1px 0 #405c43, 2px 2px 0 #39553d, 3px 3px 0 #334d37, 4px 4px 0 #29412c, 6px 9px 9px rgb(39 65 34 / 18%); }
 }

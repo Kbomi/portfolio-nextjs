@@ -44,7 +44,7 @@ export default function Projects() {
       <section id="project" className="shell section-space collaborations-surface">
         <div className="grid gap-8 md:grid-cols-[1fr_1.7fr] md:gap-20">
           <div>
-            <p className="eyebrow">05 / Collaborations</p>
+            <p className="eyebrow">외부 프로젝트</p>
             <h2 className="section-title">
               다양한 환경에서도,
               <br />
@@ -60,7 +60,7 @@ export default function Projects() {
               className="cta mt-7 text-primary hover:bg-sub-primary"
               onClick={() => setIsOpen(true)}
             >
-              전체 프로젝트 보기 <span aria-hidden="true">↗</span>
+              전체 프로젝트 보기
             </button>
           </div>
           <div>

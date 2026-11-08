@@ -12,7 +12,7 @@ export default function PortfolioMotion() {
       dispose();
       if (preference.matches) return;
       const targets = Array.from(document.querySelectorAll<HTMLElement>(
-        "[data-reveal], main > section .section-title, main > section .section-description, .sideproject-grid > article",
+        "[data-reveal], main > section .section-title, main > section .section-description, .sideproject-grid > article, .works-grid > article",
       ));
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -28,6 +28,7 @@ export default function PortfolioMotion() {
         observer.observe(target);
       });
       const scenes = Array.from(document.querySelectorAll<HTMLElement>(".experience-track"));
+      const webWorks = Array.from(document.querySelectorAll<HTMLElement>(".works-preview"));
       const ribbon = document.querySelector<HTMLElement>(".project-ribbon");
       const story = document.querySelector<HTMLElement>(".about-copy");
       const words = Array.from(document.querySelectorAll<HTMLElement>(".story-word"));
@@ -51,6 +52,11 @@ export default function PortfolioMotion() {
           scene.style.setProperty("--scene-lift", `${30 - progress * 60}px`);
           scene.style.setProperty("--scene-scale", `${0.96 + progress * 0.08}`);
           scene.style.setProperty("--screen-next", `${clamp((progress - 0.42) / 0.2)}`);
+        });
+        webWorks.forEach((work) => {
+          const rect = work.getBoundingClientRect();
+          const progress = clamp((height - rect.top) / (height + rect.height));
+          work.style.setProperty("--work-shift", `${(progress - .5) * 32}px`);
         });
         if (hero) {
           const rect = hero.getBoundingClientRect();
@@ -94,6 +100,7 @@ export default function PortfolioMotion() {
       update();
       dispose = () => {
         observer.disconnect();
+        webWorks.forEach((work) => work.style.removeProperty("--work-shift"));
         window.removeEventListener("scroll", schedule);
         window.removeEventListener("resize", schedule);
         window.cancelAnimationFrame(frame);

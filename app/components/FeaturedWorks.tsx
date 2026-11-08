@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { featuredWorks } from "../data/profile";
 import WorkScreens, { WorkScreenGallery } from "./WorkScreens";
 
@@ -114,7 +114,7 @@ export default function FeaturedWorks() {
   return (
     <section id="featured" className="experience-section">
       <div className="shell section-space experience-heading">
-        <p className="eyebrow">01 / Selected experiences</p>
+        <p className="eyebrow">대표 프로젝트</p>
         <h2 className="section-title">운영에서 배운 것, 직접 만든 것.</h2>
         <p className="section-description">
           웹에서 앱으로, 출시에서 다음 버전으로.
@@ -158,7 +158,7 @@ export default function FeaturedWorks() {
                   className="experience-detail"
                   onClick={() => setSelectedWork(work)}
                 >
-                  구현 과정과 화면 보기 <ArrowUpRight size={18} />
+                  구현 과정과 화면 보기
                 </button>
               </div>
               <div className="experience-scroll-cue" aria-hidden="true">

@@ -1,6 +1,6 @@
 import InteractiveHero from "./components/InteractiveHero";
 import AboutStory from "./components/AboutStory";
-import ProjectRibbon from "./components/ProjectRibbon";
+import WebWorks from "./components/WebWorks";
 import PortfolioMotion from "./components/PortfolioMotion";
 import Career from "./components/Career";
 import FeaturedWorks from "./components/FeaturedWorks";
@@ -19,8 +19,8 @@ export default function Home() {
       <main id="main-content" className="overflow-x-clip">
         <InteractiveHero />
         {/* <Introduce /> */}
-        <ProjectRibbon />
-        <AboutStory />
+        <div id="intro"><AboutStory /></div>
+        <WebWorks />
         <FeaturedWorks />
         <Strengths />
         <Career />

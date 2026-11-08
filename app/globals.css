@@ -648,3 +648,70 @@ footer[id] {
   .hero-token-flutter { transform: rotate(12deg); }
   .hero-name > span[aria-hidden], .hero-portrait, .hero-token, .hero-orb, .hero-floor { transition: none; }
 }
+
+/* Editorial sections: quiet surfaces and a natural reading flow below the hero. */
+.about-story { padding-block: 90px; background: #fafaf6; color: #222b26; }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; text-align: left; }
+.about-story .eyebrow { grid-column: 1 / -1; color: #245849; }
+.about-heading { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.35; }
+.about-heading > span { color: #245849; }
+.about-copy { margin: 0; max-width: none; font-size: 16px; font-weight: 400; line-height: 2; align-self: center; }
+#featured.experience-section { margin-top: 0; border-radius: 0; background: #fafaf6; }
+.experience-heading { border-top: 1px solid #d9e0d4; }
+.strengths-surface, .career-surface, .contact-surface { margin-top: 0; border-radius: 0; }
+.strengths-surface, .career-surface { background: #fafaf6; color: #222b26; border-top: 1px solid #d9e0d4; }
+.strength-number { font-size: 36px; font-weight: 400; color: #7a8276; }
+.web-works { padding-block: 100px; }
+.works-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 44px; }
+.works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.works-preview { display: block; overflow: hidden; background: #eeeee8; }
+.works-preview img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; object-position: top; }
+.works-title { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-top: 24px; }
+.works-title h3 { font-size: 30px; font-weight: 700; letter-spacing: -.04em; }
+.works-title > span { font-size: 11px; color: #667068; }
+.works-description { margin-top: 12px; font-size: 14px; line-height: 1.9; word-break: keep-all; }
+.works-scope { margin-block: 20px; font-size: 12px; line-height: 1.9; color: #667068; }
+.works-scope > span { display: block; color: #222b26; margin-bottom: 5px; }
+.works-link { display: inline-flex; align-items: center; gap: 10px; padding-block: 8px; border-bottom: 1px solid #88978a; font-size: 13px; flex-shrink: 0; }
+.works-link:hover { color: #245849; border-color: currentColor; }
+@media (max-width: 767px) {
+  .about-story { padding-block: 56px; }
+  .about-inner, .works-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-copy { font-size: 14px; }
+  .works-heading { display: block; margin-bottom: 32px; }
+  .works-heading > a { margin-top: 20px; }
+  .web-works { padding-block: 56px; }
+  .works-grid { gap: 48px; }
+}
+/* Keep the original scroll scenes; use quieter typography and labels. */
+.about-heading, #featured .section-title, .career-intro .section-title,
+.collaborations-surface .section-title,
+.strengths-intro .section-title { font-size: clamp(25px, 2.8vw, 36px); font-weight: 650; }
+.about-heading { font-size: clamp(28px, 3.2vw, 40px); }
+.experience-copy h3 { font-size: clamp(25px, 2.7vw, 34px); }
+.section-title { font-size: clamp(25px, 2.6vw, 32px); }
+.works-title h3 { font-size: 25px; font-weight: 600; }
+.eyebrow { text-transform: none; letter-spacing: .04em; font-weight: 500; }
+.experience-stage-heading { letter-spacing: .02em; }
+.experience-points li { padding-left: 0; }
+.experience-points li::before { display: none; }
+.works-preview img { transform: translateY(var(--work-shift, 0px)) scale(1.1); }
+.works-grid > article:nth-child(2) { --reveal-delay: 120ms; }
+.works-link { transition: color .2s, border-color .2s; }
+.simple-footer { border-top: 1px solid #d9e0d4; background: #f0f2eb; }
+.footer-inner { padding-block: 38px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.footer-inner p { font-size: 14px; margin-bottom: 8px; }
+.footer-inner a { font-size: 13px; text-underline-offset: 5px; }
+.footer-inner a:hover { text-decoration: underline; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+.footer-inner small { font-size: 11px; color: #667068; }
+@media (max-width: 767px) {
+  .footer-inner { align-items: flex-start; flex-direction: column; gap: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .works-preview img { transform: none; }
+}
+.about-cta { justify-self: start; margin-top: 8px; color: #245849; border-color: #aab8a5; border-radius: 0; background: transparent; font-weight: 400; padding: 8px 0; border-width: 0 0 1px; }
+
+/* Preserve the original side-project presentation. */
+.sideproject-surface .eyebrow { color: #bad09c; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }

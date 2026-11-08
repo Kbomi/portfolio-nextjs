@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 const links = [
   { href: "#featured", label: "대표 경험" },
+  { href: "#works", label: "Works" },
   { href: "#strengths", label: "핵심 역량" },
   { href: "#career", label: "실무 경력" },
   { href: "#sideproject", label: "사이드 프로젝트" },
@@ -23,7 +24,7 @@ export default function Header() {
         className="shell flex h-20 items-center justify-between"
       >
         <a
-          href="#intro"
+          href="#hello"
           aria-label="김보미 포트폴리오 처음으로"
           className="flex items-center gap-3"
         >
@@ -47,7 +48,7 @@ export default function Header() {
             href="#footer"
             className="flex items-center gap-2 rounded-full border border-[#ccd6c8] px-4 py-2 text-xs text-primary"
           >
-            연락처 <ArrowUpRight size={13} />
+            연락처
           </a>
         </div>
         <button

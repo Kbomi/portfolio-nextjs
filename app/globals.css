@@ -715,3 +715,45 @@ footer[id] {
 
 /* Preserve the original side-project presentation. */
 .sideproject-surface .eyebrow { color: #bad09c; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+
+/* A compact shelf for browsing demos, without a second detail screen. */
+.demo-library { margin-top: 12px; }
+.demo-shelf { display: flex; align-items: flex-end; justify-content: center; gap: 20px; min-height: 382px; padding: 36px 30px 25px; overflow-x: auto; overscroll-behavior-x: contain; border-bottom: 1px solid #d9e0d4; background: transparent; perspective: 1200px; scrollbar-width: thin; }
+.demo-book { --book-paper: #ece2c6; --book-ink: #563b2d; position: relative; flex: 0 0 66px; width: 66px; height: 300px; padding: 0; text-align: left; color: var(--book-ink); transform-style: preserve-3d; transition: flex-basis .65s cubic-bezier(.22,.75,.2,1), transform .65s cubic-bezier(.22,.75,.2,1); }
+.demo-book-press { --book-paper: #244950; --book-ink: #f0eee2; }
+.demo-book-yeobaek { --book-paper: #d9dfce; --book-ink: #254539; }
+.demo-book.is-selected { flex-basis: 280px; transform: translateY(-12px) rotate(-3deg); }
+.demo-book-spine, .demo-book-cover { position: absolute; inset: 0; display: flex; background: var(--book-paper); border: 1px solid rgb(28 36 29 / 18%); border-radius: 2px 5px 5px 2px; backface-visibility: hidden; transition: transform .65s cubic-bezier(.22,.75,.2,1); transform-origin: left center; box-shadow: inset 5px 0 7px rgb(0 0 0 / 9%), 5px 6px 8px rgb(25 36 28 / 12%); }
+.demo-book-spine { flex-direction: column; align-items: center; justify-content: space-between; padding: 18px 8px; }
+.demo-book-spine > span { font-size: 9px; letter-spacing: .08em; }
+.demo-book-spine strong { writing-mode: vertical-rl; font-size: 23px; font-weight: 500; letter-spacing: .05em; }
+.demo-book-cover { width: 280px; flex-direction: column; padding: 20px 18px 16px 24px; transform: rotateY(90deg); overflow: hidden; }
+.demo-book.is-selected .demo-book-spine { transform: rotateY(-90deg); }
+.demo-book.is-selected .demo-book-cover { transform: rotateY(0); }
+.demo-cover-meta { display: flex; justify-content: space-between; font-size: 9px; opacity: .75; }
+.demo-book-cover > strong { font-size: 36px; font-weight: 500; letter-spacing: -.04em; margin: 17px 0 15px; line-height: 1.2; }
+.demo-cover-image { display: block; height: 142px; overflow: hidden; border: 1px solid rgb(0 0 0 / 10%); }
+.demo-cover-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.demo-cover-footer { margin-top: auto; padding-top: 14px; font-size: 10px; }
+.demo-book:not(.is-selected):hover { transform: translateY(-7px); }
+.demo-book:focus-visible { outline-offset: 8px; }
+.demo-shelf-hint { text-align: center; font-size: 11px; color: #778173; margin-top: 18px; }
+.demo-book-description { max-width: 660px; margin: 32px auto 0; display: grid; grid-template-columns: 1fr auto; align-items: start; column-gap: 32px; min-height: 180px; }
+.demo-book-description .works-title { margin-top: 0; justify-content: flex-start; }
+.demo-book-description > a { margin-top: 4px; }
+@media (max-width: 767px) {
+  .demo-shelf { justify-content: flex-start; gap: 12px; min-height: 316px; padding: 28px 10px 22px; }
+  .demo-book { flex-basis: 38px; height: 250px; }
+  .demo-book.is-selected { flex-basis: 218px; transform: translateY(-8px) rotate(-2deg); }
+  .demo-book-cover { width: 218px; padding: 16px 14px 14px 19px; }
+  .demo-book-cover > strong { font-size: 29px; margin-block: 14px; }
+  .demo-cover-image { height: 110px; }
+  .demo-book-spine { padding-inline: 4px; }
+  .demo-book-spine strong { font-size: 18px; }
+  .demo-book-description { grid-template-columns: 1fr; margin-top: 26px; min-height: 235px; }
+  .demo-book-description > a { justify-self: start; margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-book, .demo-book-spine, .demo-book-cover { transition: none; }
+}
+.demo-shelf { touch-action: pan-y pinch-zoom; }
